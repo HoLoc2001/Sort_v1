@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThuatToan", "ThuatToan\ThuatToan.csproj", "{C9CEE3D0-B249-4924-ADA6-0962BF02B110}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9CEE3D0-B249-4924-ADA6-0962BF02B110}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9CEE3D0-B249-4924-ADA6-0962BF02B110}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9CEE3D0-B249-4924-ADA6-0962BF02B110}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9CEE3D0-B249-4924-ADA6-0962BF02B110}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC36D4C2-7799-456E-92F1-C86DE497B67A}
+	EndGlobalSection
+EndGlobal

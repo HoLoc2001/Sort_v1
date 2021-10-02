@@ -1,0 +1,15 @@
+﻿<Window x:Class="ThuatToan.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThuatToan"
+        mc:Ignorable="d"
+        Title="Select" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Button x:Name="btn" Content="Click" Margin="559,130,139.667,256" Click="btn_Click"></Button>
+        <CheckBox x:Name="cbBubble" Content="Bubble Sort" Margin="97,139,578.333,255.667" x:FieldModifier="public"></CheckBox>
+        <CheckBox x:Name="cbQuick" Content="Quick Sort" Margin="220,139,455.333,255.667" x:FieldModifier="public"></CheckBox>
+        <CheckBox x:Name="cbHead" Content="Head Sort" Margin="343,139,332.333,255.667"></CheckBox>
+    </Grid>
+</Window>
