@@ -46,6 +46,16 @@ namespace ThuatToan
             e.Handled = regex.IsMatch(e.Text);
         }
 
+        private void btnRandom_Click(object sender, RoutedEventArgs e)
+        {
+            random();
+        }
+
+        private void NumberTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (NumberTextBox.Text != " " && !string.IsNullOrEmpty(NumberTextBox.Text) && double.TryParse(NumberTextBox.Text, out double b)) { sliderNumber.Value = Convert.ToDouble(NumberTextBox.Text); }
+        }
+
         private void btnSortLinkedList_Click(object sender, RoutedEventArgs e)
         {
             SinglyLinkedList Linked_List = new SinglyLinkedList();
@@ -59,17 +69,7 @@ namespace ThuatToan
             Linked_List.BubbleSort(Linked_List, canvas1);
             start.Stop();
 
-            secons.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
-        }
-
-        private void btnRandom_Click(object sender, RoutedEventArgs e)
-        {
-            random();
-        }
-
-        private void NumberTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (NumberTextBox.Text != " " && !string.IsNullOrEmpty(NumberTextBox.Text) && double.TryParse(NumberTextBox.Text, out double b)) { sliderNumber.Value = Convert.ToDouble(NumberTextBox.Text); }
+            LinkedListTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
         }
 
         private void sliderNumber_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -85,17 +85,32 @@ namespace ThuatToan
             {
                 Stopwatch start = new Stopwatch();
                 start.Start();
+                if ((bool)cbAnimation.IsChecked)
+                {
+                    Array_sort.Bubble_sort_animation(array, canvas1);
+                }
+                else 
+                {
+                    Array_sort.Bubble_sort(array, canvas1); 
+                }
                 Array_sort.Bubble_sort(array, canvas1);
                 start.Stop();
-                secons.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
+                ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
             }
             else if (checkQuickSort)
             {
                 Stopwatch start = new Stopwatch();
                 start.Start();
-                Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
+                if ((bool)cbAnimation.IsChecked)
+                {
+                    Array_sort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                }
+                else
+                {
+                    Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
+                }
                 start.Stop();
-                secons.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
+                ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
             }
         }
 
