@@ -26,7 +26,7 @@ namespace ThuatToan
 
         private void btn_Click(object sender, RoutedEventArgs e)
         {
-            if (cbBubble.IsChecked == true)
+            if (cbBubble.IsChecked == true|| cbQuick.IsChecked == true || cbHead.IsChecked == true)
             {
                 Sort sort = new Sort();
                 sort.checkBubbleSort = (bool)cbBubble.IsChecked;

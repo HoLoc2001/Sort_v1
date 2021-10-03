@@ -68,34 +68,47 @@ namespace ThuatToan
                 {
                     pivot = array[(left + right) / 2];
                 }
-
                 int l = left;
                 int r = right;
 
                 while (l <= r)
                 {
+                    Swap_color.Swap_Color_Blue(canvas1, l);
+                    Swap_color.Swap_Color_Green(canvas1, r);
+                    Sort.Refresh();
+                    Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     while (array[l] < pivot)
+                    {
+                        Swap_color.Swap_Color_Black(canvas1, l);
                         l++;
+                        Swap_color.Swap_Color_Blue(canvas1, l);
+                        Sort.Refresh();
+                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                    }
                     while (array[r] > pivot)
+                    {
+                        Swap_color.Swap_Color_Black(canvas1, r);
                         r--;
-
+                        Swap_color.Swap_Color_Green(canvas1, r);
+                        Sort.Refresh();
+                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                    }
                     if (l <= r)
                     {
-                        //Swap_color.sort_Swap_Color(canvas1, l, r);
-                        //Sort.Refresh();
-                        //Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Swap_color.sort_Swap_Color(canvas1, l, r);
+                        Sort.Refresh();
+                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         canvas1.Children[l].SetValue(Rectangle.HeightProperty, array[r]);
                         canvas1.Children[r].SetValue(Rectangle.HeightProperty, array[l]);
                         Sort.Swap<double>(ref array[l], ref array[r]);
-                        //Swap_color.end_Swap_Color(canvas1, l, r);
-                        //Sort.Refresh();
-                        //Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Swap_color.end_Swap_Color(canvas1, l, r);
+                        Sort.Refresh();
+                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         l++;
                         r--;
                     }
-                    
-                }
 
+                }
                 if (left < r) Quick_sort(array, left, r, canvas1);
                 if (right > l) Quick_sort(array, l, right, canvas1);
             }

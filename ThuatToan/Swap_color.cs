@@ -12,6 +12,18 @@ namespace ThuatToan
 {
     public class Swap_color
     {
+        public static void Swap_Color_Green(Canvas canvas, int j)
+        {
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Green));
+        }
+        public static void Swap_Color_Blue(Canvas canvas, int j)
+        {
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
+        }
+        public static void Swap_Color_Black(Canvas canvas, int j)
+        {
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Black));
+        }
         public static void start_Swap_Color(Canvas canvas, int j)
         {
             canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
@@ -19,8 +31,11 @@ namespace ThuatToan
         }
         public static void start_Swap_Color(Canvas canvas, int i, int j)
         {
-            canvas.Children[i].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
-            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
+            for (; i <= j; i++)
+            {
+                canvas.Children[i].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
+            }
+            
         }
         public static void sort_Swap_Color(Canvas canvas, int j)
         {

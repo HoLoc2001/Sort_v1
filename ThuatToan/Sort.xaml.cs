@@ -37,7 +37,7 @@ namespace ThuatToan
         public Sort()
         {
             InitializeComponent();
-           
+
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -58,18 +58,18 @@ namespace ThuatToan
             start.Start();
             Linked_List.BubbleSort(Linked_List, canvas1);
             start.Stop();
-            
+
             secons.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
         }
 
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
-                random();
+            random();
         }
 
         private void NumberTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-           if(NumberTextBox.Text != " " && !string.IsNullOrEmpty(NumberTextBox.Text) && double.TryParse(NumberTextBox.Text, out double b)) {sliderNumber.Value = Convert.ToDouble(NumberTextBox.Text);}
+            if (NumberTextBox.Text != " " && !string.IsNullOrEmpty(NumberTextBox.Text) && double.TryParse(NumberTextBox.Text, out double b)) { sliderNumber.Value = Convert.ToDouble(NumberTextBox.Text); }
         }
 
         private void sliderNumber_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
@@ -79,25 +79,23 @@ namespace ThuatToan
         }
 
         private void btnSort_Click(object sender, RoutedEventArgs e)
-            
+
         {
-            if (!checkBubbleSort)
+            if (checkBubbleSort)
             {
                 Stopwatch start = new Stopwatch();
                 start.Start();
-                Array_sort.Bubble_sort(array,canvas1);
+                Array_sort.Bubble_sort(array, canvas1);
                 start.Stop();
                 secons.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
-                MessageBox.Show("a");
             }
-            else if (!checkQuickSort)
+            else if (checkQuickSort)
             {
-            Stopwatch start = new Stopwatch();
-            start.Start();
-            Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
-            start.Stop();
-            secons.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
-            MessageBox.Show("b");
+                Stopwatch start = new Stopwatch();
+                start.Start();
+                Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
+                start.Stop();
+                secons.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
             }
         }
 
