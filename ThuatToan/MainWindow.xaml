@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         Title="Select" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
-        <Button x:Name="btn" Content="Click" Margin="559,130,139.667,256" Click="btn_Click"></Button>
-        <RadioButton x:Name="cbBubble" Content="Bubble Sort" Margin="97,139,578.333,255.667" x:FieldModifier="public"></RadioButton>
-        <RadioButton x:Name="cbQuick" Content="Quick Sort" Margin="220,139,455.333,255.667" x:FieldModifier="public"></RadioButton>
-        <RadioButton x:Name="cbHead" Content="Head Sort" Margin="343,139,332.333,255.667"></RadioButton>
+        <Button x:Name="btn" Content="Sort" Margin="559,130,139.667,256" Click="btn_Sort"></Button>
+        <CheckBox x:Name="cbBubble" Content="Bubble Sort" Margin="97,139,578.333,255.667" x:FieldModifier="public"></CheckBox>
+        <CheckBox x:Name="cbQuick" Content="Quick Sort" Margin="220,139,455.333,255.667" x:FieldModifier="public"></CheckBox>
+        <CheckBox x:Name="cbHead" Content="Head Sort" Margin="343,139,332.333,255.667"></CheckBox>
+        
     </Grid>
 </Window>

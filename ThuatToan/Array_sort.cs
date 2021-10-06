@@ -136,14 +136,14 @@ namespace ThuatToan
                     Swap_color.Swap_Color_Blue(canvas1, l);
                     Swap_color.Swap_Color_Green(canvas1, r);
                     Sort.Refresh();
-                    Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                    Thread.Sleep(TimeSpan.FromSeconds(1));
                     while (array[l] < pivot)
                     {
                         Swap_color.Swap_Color_Black(canvas1, l);
                         l++;
                         Swap_color.Swap_Color_Blue(canvas1, l);
                         Sort.Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Thread.Sleep(TimeSpan.FromSeconds(1));
                     }
                     while (array[r] > pivot)
                     {
@@ -151,19 +151,19 @@ namespace ThuatToan
                         r--;
                         Swap_color.Swap_Color_Green(canvas1, r);
                         Sort.Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Thread.Sleep(TimeSpan.FromSeconds(1));
                     }
                     if (l <= r)
                     {
-                        Swap_color.sort_Swap_Color(canvas1, l, r);
-                        Sort.Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        //Swap_color.sort_Swap_Color(canvas1, l, r);
+                        //Sort.Refresh();
+                        //Thread.Sleep(TimeSpan.FromSeconds(1));
                         canvas1.Children[l].SetValue(Rectangle.HeightProperty, array[r]);
                         canvas1.Children[r].SetValue(Rectangle.HeightProperty, array[l]);
                         Sort.Swap<double>(ref array[l], ref array[r]);
                         Swap_color.end_Swap_Color(canvas1, l, r);
                         Sort.Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Thread.Sleep(TimeSpan.FromSeconds(1));
                         l++;
                         r--;
                     }

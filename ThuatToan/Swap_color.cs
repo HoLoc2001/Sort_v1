@@ -14,11 +14,11 @@ namespace ThuatToan
     {
         public static void Swap_Color_Green(Canvas canvas, int j)
         {
-            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Green));
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Violet));
         }
         public static void Swap_Color_Blue(Canvas canvas, int j)
         {
-            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Yellow));
         }
         public static void Swap_Color_Black(Canvas canvas, int j)
         {

@@ -9,14 +9,14 @@
     <Grid>
         <Grid>
             <Slider x:Name="sliderNumber" Minimum="0" Maximum="2000" Margin="10,10,1000,579" IsSnapToTickEnabled="True" ValueChanged="sliderNumber_ValueChanged"/>
-            <TextBlock x:Name="ArrayTime" Background="#EEEEEE" Margin="618,8,381.667,584" />
-            <TextBlock x:Name="LinkedListTime" Background="#EEEEEE" Margin="265,10,734.667,582" />
-            <TextBox x:Name="NumberTextBox" Margin="200,10,948.667,579" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Value, ElementName=sliderNumber, Mode=OneWay}" TextChanged="NumberTextBox_TextChanged" />
-            <Button x:Name="btnSort" Content="Sort Array" Margin="818,5,279.667,581" Click="btnSort_Click"/>
-            <Button x:Name="btnSortLinkedList" Margin="465,5,605.667,579" Content="Sort Linked List" Click="btnSortLinkedList_Click"/>
-            <Button x:Name="btnRandom" Margin="920,7,179.667,582" Content="Random" Click="btnRandom_Click"/>
-            <Button x:Name="BtnReset" Margin="1020,7,74.667,582" Content="Reset" Click="BtnReset_Click"></Button>
-            <CheckBox x:Name="cbAnimation" Margin="1125,10,19.667,579" RenderTransformOrigin="-0.193,-0.15"/>
+            <TextBlock x:Name="ArrayTime" Background="#EEEEEE" Margin="868,10,111.667,582" />
+            <TextBlock x:Name="LinkedListTime" Background="#EEEEEE" Margin="520,10,479.667,582" />
+            <TextBox x:Name="NumberTextBox" Margin="200,10,948.667,582" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Value, ElementName=sliderNumber, Mode=OneWay}" TextChanged="NumberTextBox_TextChanged" />
+            <Button x:Name="btnSort" Content="Sort Array" Margin="1088,10,9.667,582" Click="btnSort_Click"/>
+            <Button x:Name="btnSortLinkedList" Margin="721,10,349.667,582" Content="Sort Linked List" Click="btnSortLinkedList_Click"/>
+            <Button x:Name="btnRandom" Margin="315,10,784.667,582" Content="Random" Click="btnRandom_Click"/>
+            <Button x:Name="BtnReset" Margin="415,10,679.667,582" Content="Reset" Click="BtnReset_Click"></Button>
+            <CheckBox x:Name="cbAnimation" Margin="260,10,899.667,582" RenderTransformOrigin="-0.193,-0.15"/>
         </Grid>
 
         <Canvas x:Name="canvas1" Margin="10,50,14,10" Background="#ccc">

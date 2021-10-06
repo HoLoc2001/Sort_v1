@@ -64,19 +64,23 @@ namespace ThuatToan
             {
                 Linked_List.InsertLast(Linked_List, array[i]);
             }
-            Stopwatch start = new Stopwatch();
-            start.Start();
-            Linked_List.BubbleSort(Linked_List, canvas1);
-            start.Stop();
-
-            LinkedListTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
+            if (checkBubbleSort)
+            {
+                Stopwatch start = new Stopwatch();
+                start.Start();
+                if ((bool)cbAnimation.IsChecked)
+                {
+                    Linked_List.Bubble_sort_animation(Linked_List, canvas1);
+                }
+                else
+                {
+                    Linked_List.Bubble_sort(Linked_List, canvas1);
+                }
+                start.Stop();
+                LinkedListTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
+            }
         }
 
-        private void sliderNumber_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-            Number = Convert.ToInt32(sliderNumber.Value);
-            random();
-        }
 
         private void btnSort_Click(object sender, RoutedEventArgs e)
 
@@ -93,7 +97,6 @@ namespace ThuatToan
                 {
                     Array_sort.Bubble_sort(array, canvas1); 
                 }
-                Array_sort.Bubble_sort(array, canvas1);
                 start.Stop();
                 ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
             }
@@ -147,6 +150,11 @@ namespace ThuatToan
             arrayClone = (double[])array.Clone();
         }
 
+        private void sliderNumber_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            Number = Convert.ToInt32(sliderNumber.Value);
+            random();
+        }
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
             array = (double[])arrayClone.Clone();

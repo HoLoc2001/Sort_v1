@@ -24,7 +24,7 @@ namespace ThuatToan
             InitializeComponent();
         }
 
-        private void btn_Click(object sender, RoutedEventArgs e)
+        private void btn_Sort(object sender, RoutedEventArgs e)
         {
             if (cbBubble.IsChecked == true|| cbQuick.IsChecked == true || cbHead.IsChecked == true)
             {
