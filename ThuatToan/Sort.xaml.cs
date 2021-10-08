@@ -33,6 +33,7 @@ namespace ThuatToan
         public bool checkBubbleSort = false;
         public bool checkQuickSort = false;
         public bool checkHeapSort = false;
+        Thread thread;
 
         public Sort()
         {
@@ -83,38 +84,51 @@ namespace ThuatToan
 
 
         private void btnSort_Click(object sender, RoutedEventArgs e)
-
         {
-            if (checkBubbleSort)
+            if (thread != null)
             {
-                Stopwatch start = new Stopwatch();
-                start.Start();
-                if ((bool)cbAnimation.IsChecked)
-                {
-                    Array_sort.Bubble_sort_animation(array, canvas1);
-                }
-                else 
-                {
-                    Array_sort.Bubble_sort(array, canvas1); 
-                }
-                start.Stop();
-                ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
+                thread.Abort();
             }
-            else if (checkQuickSort)
+            thread = new Thread(new ThreadStart(sort_array));
+            thread.Start();
+        }
+
+        void sort_array()
+        {
+            this.Dispatcher.Invoke(() =>
             {
-                Stopwatch start = new Stopwatch();
-                start.Start();
-                if ((bool)cbAnimation.IsChecked)
+                if (checkBubbleSort)
                 {
-                    Array_sort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                    Stopwatch start = new Stopwatch();
+                    start.Start();
+                    if ((bool)cbAnimation.IsChecked)
+                    {
+                        Array_sort.Bubble_sort_animation(array, canvas1);
+                    }
+                    else
+                    {
+                        Array_sort.Bubble_sort(array, canvas1);
+                    }
+                    start.Stop();
+                    ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
                 }
-                else
+                else if (checkQuickSort)
                 {
-                    Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
+                    Stopwatch start = new Stopwatch();
+                    start.Start();
+                    if ((bool)cbAnimation.IsChecked)
+                    {
+                        Array_sort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                    }
+                    else
+                    {
+                        Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
+                    }
+                    start.Stop();
+                    ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
                 }
-                start.Stop();
-                ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
-            }
+            });
+            
         }
 
         void random()

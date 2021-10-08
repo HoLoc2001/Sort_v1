@@ -105,5 +105,23 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\375.png" />
+    <Resource Include="img\tải xuống.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\PikPng.com_play-button-png_605718.png" />
+    <Resource Include="img\PikPng.com_power-button-png_2847284.png" />
+    <Resource Include="img\PikPng.com_stop-png_439271.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\istockphoto-1149382130-170667a.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\144500363-circle-play-icon-for-video-isolated-and-transparent-flat-button-play-media-icon-play-for-music-and-v.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\427-4277341_add-play-button-to-image-online-overlay-play.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

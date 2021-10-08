@@ -10,13 +10,19 @@
         <Grid>
             <Slider x:Name="sliderNumber" Minimum="0" Maximum="2000" Margin="10,10,1000,579" IsSnapToTickEnabled="True" ValueChanged="sliderNumber_ValueChanged"/>
             <TextBlock x:Name="ArrayTime" Background="#EEEEEE" Margin="868,10,111.667,582" />
-            <TextBlock x:Name="LinkedListTime" Background="#EEEEEE" Margin="520,10,479.667,582" />
-            <TextBox x:Name="NumberTextBox" Margin="200,10,948.667,582" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Value, ElementName=sliderNumber, Mode=OneWay}" TextChanged="NumberTextBox_TextChanged" />
+            <TextBlock x:Name="LinkedListTime" Background="#EEEEEE" Margin="531,10,468.667,582" />
+            <TextBox x:Name="NumberTextBox" Margin="200,10,954.667,582" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Value, ElementName=sliderNumber, Mode=OneWay}" TextChanged="NumberTextBox_TextChanged" />
             <Button x:Name="btnSort" Content="Sort Array" Margin="1088,10,9.667,582" Click="btnSort_Click"/>
-            <Button x:Name="btnSortLinkedList" Margin="721,10,349.667,582" Content="Sort Linked List" Click="btnSortLinkedList_Click"/>
-            <Button x:Name="btnRandom" Margin="315,10,784.667,582" Content="Random" Click="btnRandom_Click"/>
-            <Button x:Name="BtnReset" Margin="415,10,679.667,582" Content="Reset" Click="BtnReset_Click"></Button>
-            <CheckBox x:Name="cbAnimation" Margin="260,10,899.667,582" RenderTransformOrigin="-0.193,-0.15"/>
+            <Button x:Name="btnSortLinkedList" Margin="731,10,339.667,582" Content="Sort Linked List" Click="btnSortLinkedList_Click"/>
+            <Button x:Name="btnRandom" Margin="326,10,773.667,582" Content="Random" Click="btnRandom_Click"/>
+            <Button x:Name="BtnReset" Margin="426,10,668.667,582" Content="Reset" Click="BtnReset_Click"></Button>
+            <Button x:Name="btnStop" Margin="265,10,901.667,582" Background="White">
+                <Image Source="img/427-4277341_add-play-button-to-image-online-overlay-play.png"  />
+            </Button>
+            <Button x:Name="btnOut" Margin="293,10,868.667,582" Background="Red">
+                <Image Source="img/PikPng.com_power-button-png_2847284.png"/>
+            </Button>
+            <CheckBox x:Name="cbAnimation" Margin="240,13,919.667,579"/>
         </Grid>
 
         <Canvas x:Name="canvas1" Margin="10,50,14,10" Background="#ccc">
