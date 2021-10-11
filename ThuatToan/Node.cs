@@ -86,7 +86,7 @@ namespace ThuatToan
                     j++;
                     current = current.next;
                 }
-            } while (Swapped == true);
+            } while (Swapped);
         }
         public void Bubble_sort_animation(SinglyLinkedList singlyList, Canvas canvas1)
         {
@@ -121,7 +121,9 @@ namespace ThuatToan
                     j++;
                     current = current.next;
                 }
-            } while (Swapped == true);
+            } while (Swapped);
         }
+
+
     }
 }

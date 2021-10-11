@@ -25,26 +25,32 @@ namespace ThuatToan
         public static void Bubble_sort(double[] array, Canvas canvas1)
         {
             int lenght = array.Length;
-            for (int i = 0; i < lenght; i++)
+            int count = 1;
+            bool Swapped;
+            do
             {
-                for (int j = 0; j < lenght - 1; j++)
+                Swapped = false;
+                for (int j = 0; j < lenght - count; j++)
                 {
                     if (array[j] > array[j + 1])
                     {
+                        Swapped = true;
                         canvas1.Children[j].SetValue(Rectangle.HeightProperty, array[j + 1]);
                         canvas1.Children[j + 1].SetValue(Rectangle.HeightProperty, array[j]);
                         Sort.Swap<double>(ref array[j], ref array[j + 1]);
                     }
                 }
-            }
+                count++;
+            } while (Swapped);
         }
 
         public static void Bubble_sort_animation(double[] array, Canvas canvas1)
         {
             int lenght = array.Length;
+            int count = 1;
             for (int i = 0; i < lenght; i++)
             {
-                for (int j = 0; j < lenght - 1; j++)
+                for (int j = 0; j < lenght - count; j++)
                 {
                     Swap_color.start_Swap_Color(canvas1, j);
                     Sort.Refresh();
@@ -64,6 +70,7 @@ namespace ThuatToan
                     Sort.Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));
                 }
+                count++;
             }
         }
 
@@ -136,14 +143,14 @@ namespace ThuatToan
                     Swap_color.Swap_Color_Blue(canvas1, l);
                     Swap_color.Swap_Color_Green(canvas1, r);
                     Sort.Refresh();
-                    Thread.Sleep(TimeSpan.FromSeconds(1));
+                    Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     while (array[l] < pivot)
                     {
                         Swap_color.Swap_Color_Black(canvas1, l);
                         l++;
                         Swap_color.Swap_Color_Blue(canvas1, l);
                         Sort.Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(1));
+                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     }
                     while (array[r] > pivot)
                     {
@@ -151,19 +158,19 @@ namespace ThuatToan
                         r--;
                         Swap_color.Swap_Color_Green(canvas1, r);
                         Sort.Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(1));
+                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     }
                     if (l <= r)
                     {
-                        //Swap_color.sort_Swap_Color(canvas1, l, r);
-                        //Sort.Refresh();
-                        //Thread.Sleep(TimeSpan.FromSeconds(1));
+                        Swap_color.sort_Swap_Color(canvas1, l, r);
+                        Sort.Refresh();
+                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         canvas1.Children[l].SetValue(Rectangle.HeightProperty, array[r]);
                         canvas1.Children[r].SetValue(Rectangle.HeightProperty, array[l]);
                         Sort.Swap<double>(ref array[l], ref array[r]);
                         Swap_color.end_Swap_Color(canvas1, l, r);
                         Sort.Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(1));
+                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         l++;
                         r--;
                     }

@@ -33,12 +33,14 @@ namespace ThuatToan
         public bool checkBubbleSort = false;
         public bool checkQuickSort = false;
         public bool checkHeapSort = false;
-        Thread thread;
+        Thread t1;
+        
 
         public Sort()
         {
             InitializeComponent();
-
+            
+               
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -59,41 +61,73 @@ namespace ThuatToan
 
         private void btnSortLinkedList_Click(object sender, RoutedEventArgs e)
         {
-            SinglyLinkedList Linked_List = new SinglyLinkedList();
-            int length = array.Length;
-            for (int i = 0; i < length; i++)
+            if(checkBubbleSort)
             {
-                Linked_List.InsertLast(Linked_List, array[i]);
-            }
-            if (checkBubbleSort)
+                SinglyLinkedList Linked_List = new SinglyLinkedList();
+                int length = array.Length;
+                for (int i = 0; i < length; i++)
+                {
+                    Linked_List.InsertLast(Linked_List, array[i]);
+                }
+                if (checkBubbleSort)
+                {
+                    Stopwatch start = new Stopwatch();
+                    start.Start();
+                    if ((bool)cbAnimation.IsChecked)
+                    {
+                        Linked_List.Bubble_sort_animation(Linked_List, canvas1);
+                    }
+                    else
+                    {
+                        Linked_List.Bubble_sort(Linked_List, canvas1);
+                    }
+                    start.Stop();
+                    LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
+                } 
+            }else if (checkQuickSort)
             {
                 Stopwatch start = new Stopwatch();
                 start.Start();
-                if ((bool)cbAnimation.IsChecked)
-                {
-                    Linked_List.Bubble_sort_animation(Linked_List, canvas1);
-                }
-                else
-                {
-                    Linked_List.Bubble_sort(Linked_List, canvas1);
-                }
+                Array_sort.Bubble_sort(array, canvas1);
                 start.Stop();
-                LinkedListTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
+                LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
             }
         }
 
 
         private void btnSort_Click(object sender, RoutedEventArgs e)
         {
-            if (thread != null)
+            if ((bool)cbAnimation.IsChecked)
             {
-                thread.Abort();
+                if (t1 != null)
+                {
+                    t1.Abort();
+                }
+                t1 = new Thread(new ThreadStart(sort_array_animation));
+                t1.Start();
             }
-            thread = new Thread(new ThreadStart(sort_array));
-            thread.Start();
+            else
+            {
+                if (checkBubbleSort)
+                {
+                    Stopwatch start = new Stopwatch();
+                    start.Start();
+                    Array_sort.Bubble_sort(array, canvas1);
+                    start.Stop();
+                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
+                }
+                else if (checkQuickSort)
+                {
+                    Stopwatch start = new Stopwatch();
+                    start.Start();
+                    Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
+                    start.Stop();
+                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
+                }
+            }
         }
 
-        void sort_array()
+        void sort_array_animation()
         {
             this.Dispatcher.Invoke(() =>
             {
@@ -101,31 +135,17 @@ namespace ThuatToan
                 {
                     Stopwatch start = new Stopwatch();
                     start.Start();
-                    if ((bool)cbAnimation.IsChecked)
-                    {
-                        Array_sort.Bubble_sort_animation(array, canvas1);
-                    }
-                    else
-                    {
-                        Array_sort.Bubble_sort(array, canvas1);
-                    }
+                    Array_sort.Bubble_sort_animation(array, canvas1);
                     start.Stop();
-                    ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
+                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }
                 else if (checkQuickSort)
                 {
                     Stopwatch start = new Stopwatch();
                     start.Start();
-                    if ((bool)cbAnimation.IsChecked)
-                    {
-                        Array_sort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
-                    }
-                    else
-                    {
-                        Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
-                    }
+                    Array_sort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
                     start.Stop();
-                    ArrayTime.Text = $"{(start.Elapsed.Ticks * 100).ToString("#,###")} nanoseconds";
+                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }
             });
             
@@ -198,6 +218,16 @@ namespace ThuatToan
             T temp = a;
             a = b;
             b = temp;
+        }
+
+        private void btnPause_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
         //void BubbleSorted()
         //{

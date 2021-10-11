@@ -14,14 +14,10 @@
             <TextBox x:Name="NumberTextBox" Margin="200,10,954.667,582" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Value, ElementName=sliderNumber, Mode=OneWay}" TextChanged="NumberTextBox_TextChanged" />
             <Button x:Name="btnSort" Content="Sort Array" Margin="1088,10,9.667,582" Click="btnSort_Click"/>
             <Button x:Name="btnSortLinkedList" Margin="731,10,339.667,582" Content="Sort Linked List" Click="btnSortLinkedList_Click"/>
-            <Button x:Name="btnRandom" Margin="326,10,773.667,582" Content="Random" Click="btnRandom_Click"/>
-            <Button x:Name="BtnReset" Margin="426,10,668.667,582" Content="Reset" Click="BtnReset_Click"></Button>
-            <Button x:Name="btnStop" Margin="265,10,901.667,582" Background="White">
-                <Image Source="img/427-4277341_add-play-button-to-image-online-overlay-play.png"  />
-            </Button>
-            <Button x:Name="btnOut" Margin="293,10,868.667,582" Background="Red">
-                <Image Source="img/PikPng.com_power-button-png_2847284.png"/>
-            </Button>
+            <Button x:Name="btnRandom" Margin="364,10,754.667,582" Content="Random" Click="btnRandom_Click"/>
+            <Button x:Name="BtnReset" Margin="445,10,668.667,582" Content="Reset" Click="BtnReset_Click"></Button>
+            <Button x:Name="btnPause" Margin="265,10,884.667,582" Click="btnPause_Click">Pause</Button>
+            <Button x:Name="btnStop" Margin="320,10,835.667,582" Click="btnStop_Click">Stop</Button>
             <CheckBox x:Name="cbAnimation" Margin="240,13,919.667,579"/>
         </Grid>
 
