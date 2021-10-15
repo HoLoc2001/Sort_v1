@@ -59,7 +59,7 @@
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Node.cs" />
+    <Compile Include="LinkedList.cs" />
     <Compile Include="Swap_color.cs" />
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -73,7 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Array_sort.cs" />
+    <Compile Include="Array.cs" />
     <Compile Include="Sort.xaml.cs">
       <DependentUpon>Sort.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -64,6 +64,37 @@ namespace ThuatToan
             }
             return count;
         }
+
+        Node paritionLast(Node start, Node end)
+        {
+            if (start == end || start == null || end == null)
+                return start;
+
+            Node pivot_prev = start;
+            Node curr = start;
+            double pivot = end.data;
+
+            double temp;
+            while (start != end)
+            {
+
+                if (start.data < pivot)
+                {
+                    pivot_prev = curr;
+                    temp = curr.data;
+                    curr.data = start.data;
+                    start.data = temp;
+                    curr = curr.next;
+                }
+                start = start.next;
+            }
+            temp = curr.data;
+            curr.data = pivot;
+            end.data = temp;
+
+            return pivot_prev;
+        }
+
         public void Bubble_sort(SinglyLinkedList singlyList, Canvas canvas1)
         {
             int j = 0;
@@ -124,6 +155,20 @@ namespace ThuatToan
             } while (Swapped);
         }
 
+        public void Quick_sort(Node start, Node end)
+        {
+            if (start == end)
+                return;
+           
+            Node pivot_prev = paritionLast(start, end);
+            Quick_sort(start, pivot_prev);
 
+            if (pivot_prev != null && pivot_prev == start)
+                Quick_sort(pivot_prev.next, end);
+
+            else if (pivot_prev != null
+                     && pivot_prev.next != null)
+                Quick_sort(pivot_prev.next.next, end);
+        }
     }
 }
