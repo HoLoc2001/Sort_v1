@@ -32,11 +32,7 @@ namespace ThuatToan
                 sort.checkBubbleSort = (bool)cbBubble.IsChecked;
                 sort.checkQuickSort = (bool)cbQuick.IsChecked;
                 sort.checkHeapSort = (bool)cbHead.IsChecked;
-                if (sort.checkQuickSort)
-                {
-                    sort.btnSortLinkedList.Content = "Bubble sort";
-                    sort.btnSort.Content = "Quick sort";
-                }
+                
                 this.Hide();
                 sort.ShowDialog();
                 this.Show();

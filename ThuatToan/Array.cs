@@ -184,6 +184,44 @@ namespace ThuatToan
                 if (right > l) Quick_sort_animation(array, l, right, canvas1);
             }
         }
+
+        #region
+        public static void Heap_sort(double[] arr, int n, Canvas canvas1) //n la arr.lenght
+        {
+            for (int i = n / 2 - 1; i >= 0; i--)
+            {
+                heapify(arr, n, i);
+            }
+                
+            for (int i = n - 1; i >= 0; i--)
+            {
+                canvas1.Children[0].SetValue(Rectangle.HeightProperty, arr[i]);
+                canvas1.Children[i].SetValue(Rectangle.HeightProperty, arr[0]);
+                double temp = arr[0];
+                arr[0] = arr[i];
+                arr[i] = temp;
+                heapify(arr, i, 0);
+            }
+        }
+        public static void heapify(double[] arr, int n, int i)
+        {
+            int largest = i;
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+            if (left < n && arr[left] > arr[largest])
+                largest = left;
+            if (right < n && arr[right] > arr[largest])
+                largest = right;
+            if (largest != i)
+            {
+                double swap = arr[i];
+                arr[i] = arr[largest];
+                arr[largest] = swap;
+                heapify(arr, n, largest);
+            }
+
+        }
+         #endregion
     }
 }
 

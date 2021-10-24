@@ -12,7 +12,7 @@
             <TextBlock x:Name="ArrayTime" Background="#EEEEEE" Margin="868,10,111.667,582" />
             <TextBlock x:Name="LinkedListTime" Background="#EEEEEE" Margin="531,10,468.667,582" />
             <TextBox x:Name="NumberTextBox" Margin="200,10,954.667,582" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Value, ElementName=sliderNumber, Mode=OneWay}" TextChanged="NumberTextBox_TextChanged" />
-            <Button x:Name="btnSort" Content="Sort Array" Margin="1088,10,9.667,582" Click="btnSort_Click"/>
+            <Button x:Name="btnSortArray" Content="Sort Array" Margin="1088,10,9.667,582" Click="btnSortArray_Click"/>
             <Button x:Name="btnSortLinkedList" Margin="731,10,339.667,582" Content="Sort Linked List" Click="btnSortLinkedList_Click"/>
             <Button x:Name="btnRandom" Margin="364,10,754.667,582" Content="Random" Click="btnRandom_Click"/>
             <Button x:Name="BtnReset" Margin="445,10,668.667,582" Content="Reset" Click="BtnReset_Click"></Button>
