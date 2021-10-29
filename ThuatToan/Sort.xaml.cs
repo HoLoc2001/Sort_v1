@@ -180,11 +180,11 @@ namespace ThuatToan
                     start.Start();
                     if ((bool)cbAnimation.IsChecked)
                     {
-                        Linked_List.Bubble_sort_animation(Linked_List, canvas1);
+                        Linked_List.Bubble_sort_animation(canvas1);
                     }
                     else
                     {
-                        Linked_List.Bubble_sort(Linked_List, canvas1);
+                        Linked_List.Bubble_sort(canvas1);
                     }
                     start.Stop();
                     LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
@@ -195,7 +195,8 @@ namespace ThuatToan
                 start.Start();
                 Node i = Linked_List.GetHeadNode(Linked_List);
                 Node j = Linked_List.GetLastNode(Linked_List);
-                Linked_List.Quick_sort(Linked_List, i, j, canvas1);
+                //Linked_List.Quick_sort(Linked_List, i, j, canvas1);
+                Linked_List.quickSort(Linked_List.GetHeadNode(Linked_List));
                 start.Stop();
                 LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
             }

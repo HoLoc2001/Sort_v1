@@ -56,11 +56,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Doublely_LinkedList.cs" />
+    <Compile Include="DataStructures\Doublely_LinkedList.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LinkedList.cs" />
     <Compile Include="Swap_color.cs" />
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
@@ -74,7 +73,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Array.cs" />
+    <Compile Include="DataStructures\Array.cs" />
     <Compile Include="Sort.xaml.cs">
       <DependentUpon>Sort.xaml</DependentUpon>
       <SubType>Code</SubType>

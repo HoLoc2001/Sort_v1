@@ -47,6 +47,12 @@ namespace ThuatToan.Data
             }
             return temp;
         }
+        Node lastNode(Node node)
+        {
+            while (node.next != null)
+                node = node.next;
+            return node;
+        }
         public Node GetHeadNode(Doublely_LinkedList Linked_List)
         {
             return Linked_List.head;
@@ -66,7 +72,9 @@ namespace ThuatToan.Data
             size++;
         }
 
-        public void Bubble_sort(Doublely_LinkedList Linked_List, Canvas canvas1)
+
+        #region BublleSort
+        public void Bubble_sort( Canvas canvas1)
         {
             int j = 0;
             Node current = null;
@@ -74,7 +82,7 @@ namespace ThuatToan.Data
             do
             {
                 j = 0;
-                current = Linked_List.head;
+                current = head;
                 Swapped = false;
                 while (current != null && current.next != null)
                 {
@@ -91,7 +99,7 @@ namespace ThuatToan.Data
             } while (Swapped);
         }
 
-        public void Bubble_sort_animation(Doublely_LinkedList Linked_List, Canvas canvas1)
+        public void Bubble_sort_animation(Canvas canvas1)
         {
             int j = 0;
             Node current = null;
@@ -99,7 +107,7 @@ namespace ThuatToan.Data
             do
             {
                 j = 0;
-                current = Linked_List.head;
+                current = head;
                 Swapped = false;
                 while (current != null && current.next != null)
                 {
@@ -126,34 +134,55 @@ namespace ThuatToan.Data
                 }
             } while (Swapped);
         }
+        #endregion
 
-        
 
-        public void Quick_sort(Doublely_LinkedList Linked_List, Node head , Node last, Canvas canvas1)
+        #region QuickSort
+        Node partition(Node h, Node t)
         {
-            if (Linked_List.head != null && last != Linked_List.head && last != Linked_List.head.next)
+            // set pivot as h element  
+            double pivot = h.data;
+
+            Node i = t.prev;
+            double temp;
+
+            for (Node j = t; j != h; j = j.next)
             {
-                double pivot = Linked_List.head.data;
-                Node i = last;
-                Node j = head;
-                double temp;
-                for (; j != Linked_List.head; j = j.next)
+                if (j.data <= pivot)
                 {
-                    if (j.data <= pivot)
-                    {
-                        _ = (i == null) ? last : i.next;
-                        temp = i.data;
-                        i.data = j.data;
-                        j.data = temp;
-                    }
+                    i = (i == null) ? t : i.next;
+                    temp = i.data;
+                    i.data = j.data;
+                    j.data = temp;
                 }
-                _ = (i == null) ? last : i.next;
-                temp = i.data;
-                i.data = head.data;
-                head.data = temp;
-                Quick_sort(Linked_List, i.prev, last, canvas1);
-                Quick_sort(Linked_List, head, i.next, canvas1);
+            }
+            i = (i == null) ? t : i.next;
+            temp = i.data;
+            i.data = h.data;
+            h.data = temp;
+            return i;
+        }
+
+        void _quickSort(Node h, Node t)
+        {
+            if (h != null && t != h && t != h.next)
+            {
+                Node temp = partition(h, t);
+                _quickSort(temp.prev, t);
+                _quickSort(h ,temp.next);
             }
         }
+        public void quickSort(Node node) // node = getLastNode
+        {
+            Node head = lastNode(node);
+
+            _quickSort(head, node);
+        }
+        #endregion
+
+        #region HeapSort
+
+
+        #endregion
     }
 }
