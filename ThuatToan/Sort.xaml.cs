@@ -34,6 +34,8 @@ namespace ThuatToan
         public bool checkBubbleSort = false;
         public bool checkQuickSort = false;
         public bool checkHeapSort = false;
+        Doublely_LinkedList Linked_List = new Doublely_LinkedList();
+        
         Thread t1;
         
 
@@ -165,7 +167,7 @@ namespace ThuatToan
 
         private void btnSortLinkedList_Click(object sender, RoutedEventArgs e)
         {
-            Doublely_LinkedList Linked_List = new Doublely_LinkedList();
+            
             int length = array.Length;
             for (int i = 0; i < length; i++)
             {
@@ -193,9 +195,6 @@ namespace ThuatToan
             {
                 Stopwatch start = new Stopwatch();
                 start.Start();
-                Node i = Linked_List.GetHeadNode(Linked_List);
-                Node j = Linked_List.GetLastNode(Linked_List);
-                //Linked_List.Quick_sort(Linked_List, i, j, canvas1);
                 Linked_List.quickSort(Linked_List.GetHeadNode(Linked_List));
                 start.Stop();
                 LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
@@ -219,6 +218,7 @@ namespace ThuatToan
                 {
                     Stopwatch start = new Stopwatch();
                     start.Start();
+                    //Array.Sort(array);
                     Array_sort.Bubble_sort(array, canvas1);
                     start.Stop();
                     ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";

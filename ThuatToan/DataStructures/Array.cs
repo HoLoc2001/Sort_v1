@@ -1,27 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Text.RegularExpressions;
 using System.Threading;
-using System.Diagnostics;
-using System.Windows.Threading;
 using static ThuatToan.Sort;
 
 namespace ThuatToan
 {
     public class Array_sort
     {
+        #region BublleSort
         public static void Bubble_sort(double[] array, Canvas canvas1)
         {
             int lenght = array.Length;
@@ -37,13 +24,13 @@ namespace ThuatToan
                         Swapped = true;
                         canvas1.Children[j].SetValue(Rectangle.HeightProperty, array[j + 1]);
                         canvas1.Children[j + 1].SetValue(Rectangle.HeightProperty, array[j]);
-                        Sort.Swap<double>(ref array[j], ref array[j + 1]);
+                        Swap(ref array[j], ref array[j + 1]);
                     }
                 }
                 count++;
             } while (Swapped);
         }
-
+        
         public static void Bubble_sort_animation(double[] array, Canvas canvas1)
         {
             int lenght = array.Length;
@@ -53,27 +40,29 @@ namespace ThuatToan
                 for (int j = 0; j < lenght - count; j++)
                 {
                     Swap_color.start_Swap_Color(canvas1, j);
-                    Sort.Refresh();
+                    Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     if (array[j] > array[j + 1])
                     {
                         Swap_color.sort_Swap_Color(canvas1, j);
-                        Sort.Refresh();
+                        Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         canvas1.Children[j].SetValue(Rectangle.HeightProperty, array[j + 1]);
                         canvas1.Children[j + 1].SetValue(Rectangle.HeightProperty, array[j]);
-                        Sort.Swap<double>(ref array[j], ref array[j + 1]);
-                        Sort.Refresh();
+                        Swap(ref array[j], ref array[j + 1]);
+                        Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     }
                     Swap_color.end_Swap_Color(canvas1, j);
-                    Sort.Refresh();
+                    Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));
                 }
                 count++;
             }
         }
+        #endregion
 
+        #region QuickSort
         public static void Quick_sort(double[] array, int left, int right, Canvas canvas1)//left: diem dau, right: diem cuoi
         {
             if (left <= right)
@@ -108,7 +97,7 @@ namespace ThuatToan
                     {
                         canvas1.Children[l].SetValue(Rectangle.HeightProperty, array[r]);
                         canvas1.Children[r].SetValue(Rectangle.HeightProperty, array[l]);
-                        Sort.Swap<double>(ref array[l], ref array[r]);
+                        Swap(ref array[l], ref array[r]);
                         l++;
                         r--;
                     }
@@ -142,14 +131,14 @@ namespace ThuatToan
                 {
                     Swap_color.Swap_Color_Blue(canvas1, l);
                     Swap_color.Swap_Color_Green(canvas1, r);
-                    Sort.Refresh();
+                    Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     while (array[l] < pivot)
                     {
                         Swap_color.Swap_Color_Black(canvas1, l);
                         l++;
                         Swap_color.Swap_Color_Blue(canvas1, l);
-                        Sort.Refresh();
+                        Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     }
                     while (array[r] > pivot)
@@ -157,19 +146,19 @@ namespace ThuatToan
                         Swap_color.Swap_Color_Black(canvas1, r);
                         r--;
                         Swap_color.Swap_Color_Green(canvas1, r);
-                        Sort.Refresh();
+                        Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     }
                     if (l <= r)
                     {
                         Swap_color.sort_Swap_Color(canvas1, l, r);
-                        Sort.Refresh();
+                        Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         canvas1.Children[l].SetValue(Rectangle.HeightProperty, array[r]);
                         canvas1.Children[r].SetValue(Rectangle.HeightProperty, array[l]);
-                        Sort.Swap<double>(ref array[l], ref array[r]);
+                        Swap(ref array[l], ref array[r]);
                         Swap_color.end_Swap_Color(canvas1, l, r);
-                        Sort.Refresh();
+                        Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         l++;
                         r--;
@@ -184,26 +173,25 @@ namespace ThuatToan
                 if (right > l) Quick_sort_animation(array, l, right, canvas1);
             }
         }
+        #endregion
 
-        #region
+        #region HeapSort
         public static void Heap_sort(double[] arr, int n, Canvas canvas1) //n la arr.lenght
         {
             for (int i = n / 2 - 1; i >= 0; i--)
             {
-                heapify(arr, n, i);
+                heapify(arr, n, i, canvas1);
             }
                 
             for (int i = n - 1; i >= 0; i--)
             {
                 canvas1.Children[0].SetValue(Rectangle.HeightProperty, arr[i]);
                 canvas1.Children[i].SetValue(Rectangle.HeightProperty, arr[0]);
-                double temp = arr[0];
-                arr[0] = arr[i];
-                arr[i] = temp;
-                heapify(arr, i, 0);
+                Swap(ref arr[0], ref arr[i]);
+                heapify(arr, i, 0, canvas1);
             }
         }
-        public static void heapify(double[] arr, int n, int i)
+        public static void heapify(double[] arr, int n, int i, Canvas canvas1)
         {
             int largest = i;
             int left = 2 * i + 1;
@@ -214,14 +202,13 @@ namespace ThuatToan
                 largest = right;
             if (largest != i)
             {
-                double swap = arr[i];
-                arr[i] = arr[largest];
-                arr[largest] = swap;
-                heapify(arr, n, largest);
+                canvas1.Children[i].SetValue(Rectangle.HeightProperty, arr[largest]);
+                canvas1.Children[largest].SetValue(Rectangle.HeightProperty, arr[i]);
+                Swap(ref arr[i], ref arr[largest]);
+                heapify(arr, n, largest, canvas1);
             }
-
         }
-         #endregion
+        #endregion
     }
 }
 

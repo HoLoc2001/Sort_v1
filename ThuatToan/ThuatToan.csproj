@@ -57,6 +57,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataStructures\Doublely_LinkedList.cs" />
+    <Compile Include="DataStructures\HashTable.cs" />
+    <Compile Include="DataStructures\Tree.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

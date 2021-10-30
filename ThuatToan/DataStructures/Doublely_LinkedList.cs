@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Shapes;
+using static ThuatToan.Sort;
 
 namespace ThuatToan.Data
 {
@@ -29,7 +26,7 @@ namespace ThuatToan.Data
         private Node head;
         private Node tail;
 
-       
+
         public int Size()
         {
             return size;
@@ -38,16 +35,8 @@ namespace ThuatToan.Data
         {
             return Size() == 0;
         }
-        public Node GetLastNode(Doublely_LinkedList Linked_List)
-        {
-            Node temp = Linked_List.head;
-            while (temp.next != null)
-            {
-                temp = temp.next;
-            }
-            return temp;
-        }
-        Node lastNode(Node node)
+
+        Node GetLastNode(Node node)
         {
             while (node.next != null)
                 node = node.next;
@@ -72,6 +61,15 @@ namespace ThuatToan.Data
             size++;
         }
 
+        public Node getNode(Node node, int n)//node = GetHeadNode(), n = index
+        {
+            for (int i = 0; i < n; i++)
+            {
+                node = node.next;
+            }
+            return node;
+        }
+
 
         #region BublleSort
         public void Bubble_sort( Canvas canvas1)
@@ -91,7 +89,7 @@ namespace ThuatToan.Data
                         Swapped = true;
                         canvas1.Children[j].SetValue(Rectangle.HeightProperty, current.next.data);
                         canvas1.Children[j + 1].SetValue(Rectangle.HeightProperty, current.data);
-                        Sort.Swap<double>(ref current.data, ref current.next.data);
+                        Sort.Swap(ref current.data, ref current.next.data);
                     }
                     j++;
                     current = current.next;
@@ -112,22 +110,22 @@ namespace ThuatToan.Data
                 while (current != null && current.next != null)
                 {
                     Swap_color.start_Swap_Color(canvas1, j);
-                    Sort.Refresh();
+                    Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     if (current.data > current.next.data)
                     {
                         Swapped = true;
                         Swap_color.sort_Swap_Color(canvas1, j);
-                        Sort.Refresh();
+                        Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         canvas1.Children[j].SetValue(Rectangle.HeightProperty, current.next.data);
                         canvas1.Children[j + 1].SetValue(Rectangle.HeightProperty, current.data);
-                        Sort.Swap<double>(ref current.data, ref current.next.data);
-                        Sort.Refresh();
+                        Swap(ref current.data, ref current.next.data);
+                        Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     }
                     Swap_color.end_Swap_Color(canvas1, j);
-                    Sort.Refresh();
+                    Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     j++;
                     current = current.next;
@@ -136,30 +134,23 @@ namespace ThuatToan.Data
         }
         #endregion
 
-
         #region QuickSort
         Node partition(Node h, Node t)
         {
-            // set pivot as h element  
             double pivot = h.data;
 
             Node i = t.prev;
-            double temp;
 
             for (Node j = t; j != h; j = j.next)
             {
                 if (j.data <= pivot)
                 {
                     i = (i == null) ? t : i.next;
-                    temp = i.data;
-                    i.data = j.data;
-                    j.data = temp;
+                    Swap(ref i.data, ref j.data);
                 }
             }
             i = (i == null) ? t : i.next;
-            temp = i.data;
-            i.data = h.data;
-            h.data = temp;
+            Swap(ref i.data, ref h.data);
             return i;
         }
 
@@ -168,20 +159,31 @@ namespace ThuatToan.Data
             if (h != null && t != h && t != h.next)
             {
                 Node temp = partition(h, t);
-                _quickSort(temp.prev, t);
                 _quickSort(h ,temp.next);
+                _quickSort(temp.prev, t);
             }
         }
-        public void quickSort(Node node) // node = getLastNode
+        public void quickSort(Node head) 
         {
-            Node head = lastNode(node);
+            Node last = GetLastNode(head);
 
-            _quickSort(head, node);
+            _quickSort(last, head);
         }
         #endregion
 
         #region HeapSort
+        public void Heap_sort(Node h, int n) //n = size
+        {
+            for (Node i = getNode(h ,n/2 -1); i != h; i = i.prev)
+            {
 
+            }
+        }
+
+        void heapify(Node n, Node i)
+        {
+            Node largest = i;
+        }
 
         #endregion
     }

@@ -26,12 +26,12 @@ namespace ThuatToan
 
         private void btn_Sort(object sender, RoutedEventArgs e)
         {
-            if (cbBubble.IsChecked == true|| cbQuick.IsChecked == true || cbHead.IsChecked == true)
+            if (rbBubble.IsChecked == true|| rbQuick.IsChecked == true || rbHead.IsChecked == true)
             {
                 Sort sort = new Sort();
-                sort.checkBubbleSort = (bool)cbBubble.IsChecked;
-                sort.checkQuickSort = (bool)cbQuick.IsChecked;
-                sort.checkHeapSort = (bool)cbHead.IsChecked;
+                sort.checkBubbleSort = (bool)rbBubble.IsChecked;
+                sort.checkQuickSort = (bool)rbQuick.IsChecked;
+                sort.checkHeapSort = (bool)rbHead.IsChecked;
                 
                 this.Hide();
                 sort.ShowDialog();
