@@ -16,12 +16,12 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Diagnostics;
 using System.Windows.Threading;
-using Algorithms.Data;
 using Algorithms.DataStructures;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.InteropServices;
 using Algorithms.DataStructures.Array;
+using Algorithms.DataStructures.Doublely_LinkedList;
 
 namespace Algorithms
 {
@@ -40,15 +40,15 @@ namespace Algorithms
         public bool checkQuickSort = false;
         public bool checkHeapSort = false;
         Doublely_LinkedList Linked_List = new Doublely_LinkedList();
-        
+
         Thread t1;
-        
+
 
         public Sort()
         {
             InitializeComponent();
-            
-               
+
+
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -75,7 +75,7 @@ namespace Algorithms
                 {
                     Stopwatch start = new Stopwatch();
                     start.Start();
-                    Array_sort.Bubble_sort_animation(array, canvas1);
+                    DataStructures.Array.BublleSort.Bubble_sort_animation(array, canvas1);
                     start.Stop();
                     ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }
@@ -83,12 +83,12 @@ namespace Algorithms
                 {
                     Stopwatch start = new Stopwatch();
                     start.Start();
-                    Array_sort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                    DataStructures.Array.QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
                     start.Stop();
                     ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }
             });
-            
+
         }
 
         void random()
@@ -167,12 +167,12 @@ namespace Algorithms
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void btnSortLinkedList_Click(object sender, RoutedEventArgs e)
         {
-            
+
             int length = array.Length;
             for (int i = 0; i < length; i++)
             {
@@ -180,7 +180,7 @@ namespace Algorithms
             }
             if (checkBubbleSort)
             {
-                
+
                 if (checkBubbleSort)
                 {
                     Stopwatch start = new Stopwatch();
@@ -195,8 +195,9 @@ namespace Algorithms
                     }
                     start.Stop();
                     LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-                } 
-            }else if (checkQuickSort)
+                }
+            }
+            else if (checkQuickSort)
             {
                 Stopwatch start = new Stopwatch();
                 start.Start();
@@ -224,7 +225,7 @@ namespace Algorithms
                     Stopwatch start = new Stopwatch();
                     start.Start();
                     //Array.Sort(array);
-                    //Array_sort.Bubble_sort(array, canvas1);
+                    BublleSort.Bubble_sort(array, canvas1);
                     start.Stop();
                     ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }
@@ -232,7 +233,7 @@ namespace Algorithms
                 {
                     Stopwatch start = new Stopwatch();
                     start.Start();
-                    Array_sort.Quick_sort(array, 0, array.Length - 1, canvas1);
+                    QuickSort.Quick_sort(array, 0, array.Length - 1, canvas1);
                     start.Stop();
                     ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }
@@ -240,7 +241,7 @@ namespace Algorithms
                 {
                     Stopwatch start = new Stopwatch();
                     start.Start();
-                    Array_sort.Heap_sort(array, array.Length, canvas1);
+                    HeapSort.Heap_sort(array, array.Length, canvas1);
                     start.Stop();
                     ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }

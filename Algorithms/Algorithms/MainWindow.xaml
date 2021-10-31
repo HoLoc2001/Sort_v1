@@ -12,7 +12,7 @@
         <RadioButton x:Name="rbBubble" Content="Bubble Sort" Margin="97,139,578.333,255.667" x:FieldModifier="public"></RadioButton>
         <RadioButton x:Name="rbQuick" Content="Quick Sort" Margin="220,139,455.333,255.667" x:FieldModifier="public"></RadioButton>
         <RadioButton x:Name="rbHead" Content="Head Sort" Margin="343,139,332.333,255.667"></RadioButton>
-        
-        
+
+
     </Grid>
 </Window>

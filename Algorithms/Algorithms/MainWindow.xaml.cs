@@ -26,17 +26,17 @@ namespace Algorithms
 
         private void btn_Sort(object sender, RoutedEventArgs e)
         {
-            if (rbBubble.IsChecked == true|| rbQuick.IsChecked == true || rbHead.IsChecked == true)
+            if (rbBubble.IsChecked == true || rbQuick.IsChecked == true || rbHead.IsChecked == true)
             {
                 Sort sort = new Sort();
                 sort.checkBubbleSort = (bool)rbBubble.IsChecked;
                 sort.checkQuickSort = (bool)rbQuick.IsChecked;
                 sort.checkHeapSort = (bool)rbHead.IsChecked;
-                
+
                 this.Hide();
                 sort.ShowDialog();
                 this.Show();
-                
+
             }
         }
     }

@@ -1,0 +1,17 @@
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.csproj.AssemblyReference.cache
+E:\doan1\Algorithms\Algorithms\obj\Debug\MainWindow.g.cs
+E:\doan1\Algorithms\Algorithms\obj\Debug\Sort.g.cs
+E:\doan1\Algorithms\Algorithms\obj\Debug\App.g.cs
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms_MarkupCompile.cache
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms_MarkupCompile.lref
+E:\doan1\Algorithms\Algorithms\bin\Debug\Algorithms.exe.config
+E:\doan1\Algorithms\Algorithms\bin\Debug\Algorithms.exe
+E:\doan1\Algorithms\Algorithms\bin\Debug\Algorithms.pdb
+E:\doan1\Algorithms\Algorithms\obj\Debug\MainWindow.baml
+E:\doan1\Algorithms\Algorithms\obj\Debug\Sort.baml
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.g.resources
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.Properties.Resources.resources
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.csproj.GenerateResource.cache
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.csproj.CoreCompileInputs.cache
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.exe
+E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.pdb
