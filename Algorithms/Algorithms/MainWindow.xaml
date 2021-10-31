@@ -10,9 +10,10 @@
         <Button x:Name="btn" Content="Sort" Margin="559,130,139.667,256" Click="btn_Sort"></Button>
         <Button x:Name="btnAnimation" Margin="559,220,139.667,167" Content="Animation"></Button>
         <RadioButton x:Name="rbBubble" Content="Bubble Sort" Margin="97,139,578.333,255.667" x:FieldModifier="public"></RadioButton>
-        <RadioButton x:Name="rbQuick" Content="Quick Sort" Margin="220,139,455.333,255.667" x:FieldModifier="public"></RadioButton>
+        <RadioButton x:Name="rbQuick" Content="Quick Sort" Margin="216,139,459.667,256" x:FieldModifier="public"></RadioButton>
         <RadioButton x:Name="rbHead" Content="Head Sort" Margin="343,139,332.333,255.667"></RadioButton>
-
-
+        <RadioButton x:Name="rbSelection" Content="Selection Sort" Margin="97,166,578.667,228"></RadioButton>
+        <RadioButton x:Name="rbInsertion" Content="Insertion Sort" Margin="216,166,459.667,228"></RadioButton>
+        <RadioButton x:Name="rbMerge" Content="Merge Sort" Margin="343,166,332.667,228"></RadioButton>
     </Grid>
 </Window>
