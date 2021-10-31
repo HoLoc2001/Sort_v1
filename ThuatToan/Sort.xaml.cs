@@ -16,9 +16,14 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Diagnostics;
 using System.Windows.Threading;
-using ThuatToan.Data;
+using Algorithms.Data;
+using Algorithms.DataStructures;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.InteropServices;
+using Algorithms.DataStructures.Array;
 
-namespace ThuatToan
+namespace Algorithms
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -97,10 +102,10 @@ namespace ThuatToan
             {
                 while (true)
                 {
-                    double double_rand = rand.NextDouble() + rand.Next(1, maxHieght);
+                    double double_rand = Math.Round((rand.NextDouble() + rand.Next(1, maxHieght)), 1);
                     if (!array.Contains(double_rand))
                     {
-                        array[i] = Math.Round(double_rand, 1);
+                        array[i] = double_rand;
                         break;
                     }
                 }
@@ -219,7 +224,7 @@ namespace ThuatToan
                     Stopwatch start = new Stopwatch();
                     start.Start();
                     //Array.Sort(array);
-                    Array_sort.Bubble_sort(array, canvas1);
+                    //Array_sort.Bubble_sort(array, canvas1);
                     start.Stop();
                     ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }

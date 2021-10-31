@@ -2,9 +2,9 @@
 using System.Threading;
 using System.Windows.Controls;
 using System.Windows.Shapes;
-using static ThuatToan.Sort;
+using static Algorithms.Sort;
 
-namespace ThuatToan.Data
+namespace Algorithms.Data
 {
     public class Node
     {

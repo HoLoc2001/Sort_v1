@@ -1,7 +1,7 @@
-﻿<Application x:Class="ThuatToan.App"
+﻿<Application x:Class="Algorithms.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:ThuatToan"
+             xmlns:local="clr-namespace:Algorithms"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

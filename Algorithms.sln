@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThuatToan", "ThuatToan\ThuatToan.csproj", "{C9CEE3D0-B249-4924-ADA6-0962BF02B110}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "ThuatToan\Algorithms.csproj", "{C9CEE3D0-B249-4924-ADA6-0962BF02B110}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

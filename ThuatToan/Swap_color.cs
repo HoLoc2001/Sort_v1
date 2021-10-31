@@ -8,7 +8,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 
-namespace ThuatToan
+namespace Algorithms
 {
     public class Swap_color
     {
