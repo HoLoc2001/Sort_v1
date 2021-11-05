@@ -15,5 +15,7 @@
         <RadioButton x:Name="rbSelection" Content="Selection Sort" Margin="97,166,578.667,228"></RadioButton>
         <RadioButton x:Name="rbInsertion" Content="Insertion Sort" Margin="216,166,459.667,228"></RadioButton>
         <RadioButton x:Name="rbMerge" Content="Merge Sort" Margin="343,166,332.667,228"></RadioButton>
+        <RadioButton x:Name="rbComb" Content="Comb Sort" Margin="216,194,459.667,200"></RadioButton>
+        <RadioButton x:Name="rbCocktail" Content="Cocktail Sort" Margin="97,194,578.667,200"></RadioButton>
     </Grid>
 </Window>

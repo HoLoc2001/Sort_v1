@@ -12,13 +12,13 @@ namespace Algorithms.DataStructures.Array
 {
     public class MergeSort
     {
-        public static void merge(int[] arr, int l, int m, int r)
+        static void merge(double[] arr, int l, int m, int r)
         {
             int n1 = m - l + 1;
             int n2 = r - m;
 
-            int[] L = new int[n1];
-            int[] R = new int[n2];
+            double[] L = new double[n1];
+            double[] R = new double[n2];
             int i, j;
             for (i = 0; i < n1; ++i)
                 L[i] = arr[l + i];
@@ -57,7 +57,7 @@ namespace Algorithms.DataStructures.Array
                 k++;
             }
         }
-        void Merge_Sort(int[] arr, int l, int r) //l = 0, r = length -1
+        public static void Merge_Sort(double[] arr, int l, int r) //l = 0, r = length -1
         {
             if (l < r)
             {

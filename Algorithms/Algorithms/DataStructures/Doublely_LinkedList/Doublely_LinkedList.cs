@@ -31,15 +31,39 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
         private Node tail;
 
 
+        public void clear()
+        {
+            Node currentNode = head;
+            while (currentNode != null)
+            {
+                Node nextNode = currentNode.next;
+                currentNode.next = null;
+                currentNode.prev = null;
+                currentNode.data = 0;
+                currentNode = nextNode;
+            }
+            head = tail = null;
+            size = 0;
+        }
         public int Size()
         {
             return size;
         }
-        public bool isEmpty()
+        int getIndex(Node node)
         {
-            return Size() == 0;
+            int i = 0;
+            while (true)
+            {
+                if (node == null)
+                {
+                    break;
+                }
+                    node = node.prev;
+                    i++;
+            }
+            return i;
         }
-
+         
         Node GetLastNode(Node node)
         {
             while (node.next != null)
@@ -53,7 +77,7 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
 
         public void addLast(Doublely_LinkedList Linked_List, double element)
         {
-            if (isEmpty())
+            if (Linked_List.head == null)
             {
                 Linked_List.head = Linked_List.tail = new Node(element, null);
             }
@@ -69,6 +93,10 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
         {
             for (int i = 0; i < n; i++)
             {
+                if (node.next == null)
+                {
+                    break;
+                }
                 node = node.next;
             }
             return node;
@@ -76,14 +104,12 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
 
 
         #region BublleSort
-        public void Bubble_sort(Canvas canvas1)
+        public void Bubble_sort()
         {
-            int j = 0;
             Node current = null;
             bool Swapped = false;
             do
             {
-                j = 0;
                 current = head;
                 Swapped = false;
                 while (current != null && current.next != null)
@@ -91,11 +117,8 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
                     if (current.data > current.next.data)
                     {
                         Swapped = true;
-                        canvas1.Children[j].SetValue(Rectangle.HeightProperty, current.next.data);
-                        canvas1.Children[j + 1].SetValue(Rectangle.HeightProperty, current.data);
                         Sort.Swap(ref current.data, ref current.next.data);
                     }
-                    j++;
                     current = current.next;
                 }
             } while (Swapped);
@@ -167,7 +190,7 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
                 _quickSort(temp.prev, t);
             }
         }
-        public void quickSort(Node head)
+        public void QuickSort(Node head)
         {
             Node last = GetLastNode(head);
 
@@ -180,19 +203,96 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
         {
             for (Node i = getNode(h, n / 2 - 1); i != h; i = i.prev)
             {
-
+                heapify(n, i);
+            }
+            for (Node i = getNode(h, n - 1); i != h; i = i.prev)
+            {
+                Swap(ref head.data, ref i.data);
+                heapify(getIndex(i), head);
             }
         }
 
-        void heapify(Node n, Node i)
+        void heapify(int n, Node i)
         {
             Node largest = i;
+            Node left = getNode(head, getIndex(i) * 2 + 1) == null ? getNode(head,n) : getNode(head, getIndex(i) * 2 + 1);
+            Node right = left.next == null ? getNode(head, n) : left.next;
+            if (getIndex(left) < n && left.data > largest.data)
+                largest = left;
+            if ((double)getIndex(right) < n && (double)right.data > largest.data)
+                largest = right;
+            if (largest != i)
+            {
+                Swap(ref i.data, ref largest.data);
+                heapify(n, largest);
+            }
         }
 
         #endregion
 
         #region SelectionSort
         public void Selection_sort()
+        {
+            Node i = head;
+            Node j;
+            while (i != null && i != null)
+            {
+                Node tmp = i;
+                j = i.next;
+                while (j != null && j != null)
+                {
+                    if (j.data < tmp.data)
+                    {
+                        tmp = j;
+                    }
+                    j = j.next;
+                }
+                if (tmp != i)
+                {
+                    Swap(ref tmp.data, ref i.data);
+                }
+                i = i.next;
+            }
+        }
+        #endregion
+
+        #region InsertionSort
+        public void Insertion_sort()
+        {
+            Node i = head;
+            Node j;
+            while (i != null && i != null)
+            {
+                double key = i.data;
+                j = i.prev;
+                while (j != null && j.data > key)
+                {
+                    j.next.data = j.data;
+                    j = j.prev;
+                }
+                j.next.data = key;
+                i = i.next;
+            }
+        }
+    
+        #endregion
+
+        #region MergeSort
+        public void Merge_sort()
+        {
+
+        }
+        #endregion
+
+        #region CombSort
+        public void Comb_sort()
+        {
+
+        }
+        #endregion
+
+        #region CocktailSort
+        public void Cocktail_sort()
         {
 
         }

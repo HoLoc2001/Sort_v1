@@ -13,7 +13,7 @@ namespace Algorithms.DataStructures.Array
     public class QuickSort
     {
         #region QuickSort
-        public static void Quick_sort(double[] arr, int left, int right, Canvas canvas1)//left: diem dau, right: diem cuoi
+        public static void Quick_sort(double[] arr, int left, int right)//left: diem dau, right: diem cuoi
         {
             if (left <= right)
             {
@@ -45,15 +45,13 @@ namespace Algorithms.DataStructures.Array
                     }
                     if (l <= r)
                     {
-                        canvas1.Children[l].SetValue(Rectangle.HeightProperty, arr[r]);
-                        canvas1.Children[r].SetValue(Rectangle.HeightProperty, arr[l]);
                         Swap(ref arr[l], ref arr[r]);
                         l++;
                         r--;
                     }
                 }
-                if (left < r) Quick_sort(arr, left, r, canvas1);
-                if (right > l) Quick_sort(arr, l, right, canvas1);
+                if (left < r) Quick_sort(arr, left, r);
+                if (right > l) Quick_sort(arr, l, right);
             }
         }
 

@@ -56,11 +56,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DataStructures\Array\BublleSort.cs" />
+    <Compile Include="DataStructures\Array\CocktailSort.cs" />
+    <Compile Include="DataStructures\Array\CombSort.cs" />
     <Compile Include="DataStructures\Array\HeapSort.cs" />
     <Compile Include="DataStructures\Array\InsertionSort.cs" />
     <Compile Include="DataStructures\Array\MergeSort.cs" />
     <Compile Include="DataStructures\Array\QuickSort.cs" />
     <Compile Include="DataStructures\Array\SelectionSort.cs" />
+    <Compile Include="DataStructures\Array\StoogeSort.cs" />
     <Compile Include="DataStructures\Doublely_LinkedList\Doublely_LinkedList.cs" />
     <Compile Include="Sort.xaml.cs">
       <DependentUpon>Sort.xaml</DependentUpon>

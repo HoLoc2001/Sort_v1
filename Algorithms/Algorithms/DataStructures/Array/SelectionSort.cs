@@ -26,8 +26,6 @@ namespace Algorithms.DataStructures.Array
                     {
                         minIndex = j;
                     }
-                    else
-                    { }
                 }
                 if (minIndex != i)
                 {

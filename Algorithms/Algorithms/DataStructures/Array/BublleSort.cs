@@ -13,7 +13,7 @@ namespace Algorithms.DataStructures.Array
     public class BublleSort
     {
         #region BublleSort
-        public static void Bubble_sort(double[] arr, Canvas canvas1)
+        public static void Bubble_sort(double[] arr)
         {
             int lenght = arr.Length;
             int count = 1;
@@ -26,8 +26,6 @@ namespace Algorithms.DataStructures.Array
                     if (arr[j] > arr[j + 1])
                     {
                         Swapped = true;
-                        canvas1.Children[j].SetValue(Rectangle.HeightProperty, arr[j + 1]);
-                        canvas1.Children[j + 1].SetValue(Rectangle.HeightProperty, arr[j]);
                         Swap(ref arr[j], ref arr[j + 1]);
                     }
                 }

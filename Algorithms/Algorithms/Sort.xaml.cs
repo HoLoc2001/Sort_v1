@@ -39,16 +39,17 @@ namespace Algorithms
         public bool checkBubbleSort = false;
         public bool checkQuickSort = false;
         public bool checkHeapSort = false;
+        public bool checkSelectionSort = false;
+        public bool checkInsertionSort = false;
+        public bool checkMergeSort = false;
+        public bool checkCombSort = false;
+        public bool checkCocktailSort = false;
         Doublely_LinkedList Linked_List = new Doublely_LinkedList();
-
-        Thread t1;
 
 
         public Sort()
         {
             InitializeComponent();
-
-
         }
 
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
@@ -69,26 +70,22 @@ namespace Algorithms
 
         void sort_array_animation()
         {
-            this.Dispatcher.Invoke(() =>
+            if (checkBubbleSort)
             {
-                if (checkBubbleSort)
-                {
-                    Stopwatch start = new Stopwatch();
-                    start.Start();
-                    DataStructures.Array.BublleSort.Bubble_sort_animation(array, canvas1);
-                    start.Stop();
-                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-                }
-                else if (checkQuickSort)
-                {
-                    Stopwatch start = new Stopwatch();
-                    start.Start();
-                    DataStructures.Array.QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
-                    start.Stop();
-                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-                }
-            });
-
+                Stopwatch start = new Stopwatch();
+                start.Start();
+                DataStructures.Array.BublleSort.Bubble_sort_animation(array, canvas1);
+                start.Stop();
+                ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
+            }
+            else if (checkQuickSort)
+            {
+                Stopwatch start = new Stopwatch();
+                start.Start();
+                DataStructures.Array.QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                start.Stop();
+                ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
+            }
         }
 
         void random()
@@ -160,92 +157,120 @@ namespace Algorithms
             b = temp;
         }
 
-        private void btnPause_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnStop_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void btnSortLinkedList_Click(object sender, RoutedEventArgs e)
         {
-
-            int length = array.Length;
-            for (int i = 0; i < length; i++)
+            Linked_List.clear();
+            int length = array.Length, i = 0;
+            for (int j = 0; j < length; j++)
             {
-                Linked_List.addLast(Linked_List, array[i]);
+                Linked_List.addLast(Linked_List, array[j]);
             }
+            Stopwatch start = new Stopwatch();
+            
             if (checkBubbleSort)
             {
-
-                if (checkBubbleSort)
-                {
-                    Stopwatch start = new Stopwatch();
-                    start.Start();
-                    if ((bool)cbAnimation.IsChecked)
-                    {
-                        Linked_List.Bubble_sort_animation(canvas1);
-                    }
-                    else
-                    {
-                        Linked_List.Bubble_sort(canvas1);
-                    }
-                    start.Stop();
-                    LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-                }
+                start.Start();
+                Linked_List.Bubble_sort();
+                start.Stop();
             }
             else if (checkQuickSort)
             {
-                Stopwatch start = new Stopwatch();
                 start.Start();
-                Linked_List.quickSort(Linked_List.GetHeadNode(Linked_List));
+                Linked_List.QuickSort(Linked_List.GetHeadNode(Linked_List));
                 start.Stop();
-                LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
             }
+            else if (checkHeapSort)
+            {
+                start.Start();
+                Linked_List.Heap_sort(Linked_List.GetHeadNode(Linked_List), Linked_List.Size());
+                start.Stop();
+            }
+            else if (checkSelectionSort)
+            {
+                start.Start();
+                Linked_List.Selection_sort();
+                start.Stop();
+            }
+            else if (checkInsertionSort)
+            {
+                start.Start();
+                Linked_List.Insertion_sort();
+                start.Stop();
+            }
+            else if (checkMergeSort)
+            {
+                start.Start();
+                Linked_List.Merge_sort();
+                start.Stop();
+            }
+            
+            Node node = Linked_List.GetHeadNode(Linked_List);
+            while (node != null && node != null)
+            {
+                canvas1.Children[i].SetValue(Rectangle.HeightProperty, node.data);
+                node = node.next;
+                i++;
+            }
+            LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
         }
 
         private void btnSortArray_Click(object sender, RoutedEventArgs e)
         {
-            if ((bool)cbAnimation.IsChecked)
+            Stopwatch start = new Stopwatch();
+            //Array.Sort(array);
+            if (checkBubbleSort)
             {
-                if (t1 != null)
-                {
-                    t1.Abort();
-                }
-                t1 = new Thread(new ThreadStart(sort_array_animation));
-                t1.Start();
+                start.Start();
+                BublleSort.Bubble_sort(array);
+                start.Stop();
             }
-            else
+            else if (checkQuickSort)
             {
-                if (checkBubbleSort)
-                {
-                    Stopwatch start = new Stopwatch();
-                    start.Start();
-                    //Array.Sort(array);
-                    BublleSort.Bubble_sort(array, canvas1);
-                    start.Stop();
-                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-                }
-                else if (checkQuickSort)
-                {
-                    Stopwatch start = new Stopwatch();
-                    start.Start();
-                    QuickSort.Quick_sort(array, 0, array.Length - 1, canvas1);
-                    start.Stop();
-                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-                }
-                else if (checkHeapSort)
-                {
-                    Stopwatch start = new Stopwatch();
-                    start.Start();
-                    HeapSort.Heap_sort(array, array.Length, canvas1);
-                    start.Stop();
-                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-                }
+                start.Start();
+                QuickSort.Quick_sort(array, 0, array.Length - 1);
+                start.Stop();
             }
+            else if (checkHeapSort)
+            {
+                start.Start();
+                HeapSort.Heap_sort(array, array.Length);
+                start.Stop();
+            }
+            else if (checkSelectionSort)
+            {
+                start.Start();
+                SelectionSort.Selection_sort(array);
+                start.Stop();
+            }
+            else if (checkInsertionSort)
+            {
+                start.Start();
+                InsertionSort.Insertion_sort(array);
+                start.Stop();
+            }
+            else if (checkMergeSort)
+            {
+                start.Start();
+                MergeSort.Merge_Sort(array, 0, array.Length - 1);
+                start.Stop();
+            }
+            else if (checkCombSort)
+            {
+                start.Start();
+                CombSort.Comb_sort(array);
+                start.Stop();
+            }
+            else if (checkCocktailSort)
+            {
+                start.Start();
+                CocktailSort.Cocktail_sort(array);
+                start.Stop();
+            }
+            for (int i = 0; i < array.Length; i++)
+            {
+                canvas1.Children[i].SetValue(Rectangle.HeightProperty, array[i]);
+            }
+            ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
         }
     }
 }

@@ -16,9 +16,7 @@
             <Button x:Name="btnSortLinkedList" Margin="731,10,339.667,582" Content="Sort Linked List" Click="btnSortLinkedList_Click"/>
             <Button x:Name="btnRandom" Margin="364,10,754.667,582" Content="Random" Click="btnRandom_Click"/>
             <Button x:Name="BtnReset" Margin="445,10,668.667,582" Content="Reset" Click="BtnReset_Click"></Button>
-            <Button x:Name="btnPause" Margin="265,10,884.667,582" Click="btnPause_Click">Pause</Button>
-            <Button x:Name="btnStop" Margin="320,10,835.667,582" Click="btnStop_Click">Stop</Button>
-            <CheckBox x:Name="cbAnimation" Margin="240,13,919.667,579"/>
+            <TextBlock x:Name="txbAlgorithms" Margin="245,11,839.667,586"></TextBlock>
         </Grid>
 
         <Canvas x:Name="canvas1" Margin="10,50,14,10" Background="#ccc">
