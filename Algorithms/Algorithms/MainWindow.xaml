@@ -17,5 +17,9 @@
         <RadioButton x:Name="rbMerge" Content="Merge Sort" Margin="343,166,332.667,228"></RadioButton>
         <RadioButton x:Name="rbComb" Content="Comb Sort" Margin="216,194,459.667,200"></RadioButton>
         <RadioButton x:Name="rbCocktail" Content="Cocktail Sort" Margin="97,194,578.667,200"></RadioButton>
+        <RadioButton x:Name="rbStooge" Content="Stooge Sort" Margin="343,194,332.667,200"></RadioButton>
+        <RadioButton x:Name="rbCycle" Content="Cycle Sort" Margin="97,222,578.667,172"></RadioButton>
+        <RadioButton x:Name="rbPancake" Content="Pancake Sort" Margin="216,220,459.667,174"></RadioButton>
+        <RadioButton x:Name="rbShell" Content="Shell Sort" Margin="343,220,332.667,174"></RadioButton>
     </Grid>
 </Window>

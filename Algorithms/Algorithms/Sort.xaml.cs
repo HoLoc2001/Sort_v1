@@ -43,7 +43,11 @@ namespace Algorithms
         public bool checkInsertionSort = false;
         public bool checkMergeSort = false;
         public bool checkCombSort = false;
-        public bool checkCocktailSort = false;
+        public bool checkCocktailSort = false; 
+        public bool checkStoogeSort = false;
+        public bool checkCycleSort = false;
+        public bool checkPancakeSort = false;
+        public bool checkShellSort = false;
         Doublely_LinkedList Linked_List = new Doublely_LinkedList();
 
 
@@ -264,6 +268,30 @@ namespace Algorithms
             {
                 start.Start();
                 CocktailSort.Cocktail_sort(array);
+                start.Stop();
+            }
+            else if (checkStoogeSort)
+            {
+                start.Start();
+                StoogeSort.Stooge_sort(array, 0, array.Length - 1);
+                start.Stop();
+            }
+            else if (checkCycleSort)
+            {
+                start.Start();
+                CycleSort.Cycle_sort(array, array.Length);
+                start.Stop();
+            }
+            else if (checkPancakeSort)
+            {
+                start.Start();
+                PancakeSort.Pancake_sort(array, array.Length);
+                start.Stop();
+            }
+            else if (checkShellSort)
+            {
+                start.Start();
+                ShellSort.Shell_sort(array);
                 start.Stop();
             }
             for (int i = 0; i < array.Length; i++)

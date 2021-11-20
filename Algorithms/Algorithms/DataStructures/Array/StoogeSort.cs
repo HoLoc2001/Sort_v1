@@ -9,7 +9,7 @@ namespace Algorithms.DataStructures.Array
 {
     class StoogeSort
     {
-        public void Stooge_sort(double[] arr, int l, int h)
+        public static void Stooge_sort(double[] arr, int l, int h)
         {
             if (l >= h)
                 return;

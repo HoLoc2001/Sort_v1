@@ -8,15 +8,15 @@
         Title="Sort" Height="650" Width="1200" Foreground="#FF930F0F" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Grid>
-            <Slider x:Name="sliderNumber" Minimum="0" Maximum="2000" Margin="10,10,1000,579" IsSnapToTickEnabled="True" ValueChanged="sliderNumber_ValueChanged"/>
+            <Slider x:Name="sliderNumber" Minimum="0" Maximum="2000" Margin="129,10,880.667,579" IsSnapToTickEnabled="True" ValueChanged="sliderNumber_ValueChanged"/>
             <TextBlock x:Name="ArrayTime" Background="#EEEEEE" Margin="868,10,111.667,582" />
             <TextBlock x:Name="LinkedListTime" Background="#EEEEEE" Margin="531,10,468.667,582" />
-            <TextBox x:Name="NumberTextBox" Margin="200,10,954.667,582" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Value, ElementName=sliderNumber, Mode=OneWay}" TextChanged="NumberTextBox_TextChanged" />
+            <TextBox x:Name="NumberTextBox" Margin="319,10,835.667,582" PreviewTextInput="NumberValidationTextBox" Text="{Binding Path=Value, ElementName=sliderNumber, Mode=OneWay}" TextChanged="NumberTextBox_TextChanged" />
             <Button x:Name="btnSortArray" Content="Sort Array" Margin="1088,10,9.667,582" Click="btnSortArray_Click"/>
             <Button x:Name="btnSortLinkedList" Margin="731,10,339.667,582" Content="Sort Linked List" Click="btnSortLinkedList_Click"/>
             <Button x:Name="btnRandom" Margin="364,10,754.667,582" Content="Random" Click="btnRandom_Click"/>
             <Button x:Name="BtnReset" Margin="445,10,668.667,582" Content="Reset" Click="BtnReset_Click"></Button>
-            <TextBlock x:Name="txbAlgorithms" Margin="245,11,839.667,586"></TextBlock>
+            <TextBlock x:Name="txbAlgorithms" Margin="10,10,1074.667,587"></TextBlock>
         </Grid>
 
         <Canvas x:Name="canvas1" Margin="10,50,14,10" Background="#ccc">

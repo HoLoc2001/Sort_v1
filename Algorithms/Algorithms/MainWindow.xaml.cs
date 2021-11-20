@@ -28,7 +28,8 @@ namespace Algorithms
         {
             if (rbBubble.IsChecked == true || rbQuick.IsChecked == true || rbHead.IsChecked == true || 
                 rbInsertion.IsChecked == true || rbSelection.IsChecked == true || rbMerge.IsChecked == true ||
-                rbCocktail.IsChecked == true || rbComb.IsChecked == true)
+                rbCocktail.IsChecked == true || rbComb.IsChecked == true || rbStooge.IsChecked == true ||
+                rbCycle.IsChecked == true || rbPancake.IsChecked == true || rbShell.IsChecked == true)
             {
                 Sort sort = new Sort();
                 sort.checkBubbleSort = (bool)rbBubble.IsChecked;
@@ -39,6 +40,10 @@ namespace Algorithms
                 sort.checkSelectionSort = (bool)rbSelection.IsChecked;
                 sort.checkCombSort = (bool)rbComb.IsChecked;
                 sort.checkCocktailSort = (bool)rbCocktail.IsChecked;
+                sort.checkStoogeSort = (bool)rbStooge.IsChecked;
+                sort.checkCycleSort = (bool)rbCycle.IsChecked;
+                sort.checkPancakeSort = (bool)rbPancake.IsChecked;
+                sort.checkShellSort = (bool)rbShell.IsChecked;
                 if (sort.checkBubbleSort)
                 {
                     sort.txbAlgorithms.Text = "Bubble Sort";
@@ -70,6 +75,22 @@ namespace Algorithms
                 else if (sort.checkCocktailSort)
                 {
                     sort.txbAlgorithms.Text = "Cocktail Sort";
+                }
+                else if (sort.checkStoogeSort)
+                {
+                    sort.txbAlgorithms.Text = "Stooge Sort";
+                }
+                else if (sort.checkCycleSort)
+                {
+                    sort.txbAlgorithms.Text = "Cycle Sort";
+                }
+                else if (sort.checkPancakeSort)
+                {
+                    sort.txbAlgorithms.Text = "Pancake Sort";
+                }
+                else if (sort.checkShellSort)
+                {
+                    sort.txbAlgorithms.Text = "Shell Sort";
                 }
                 this.Hide();
                 sort.ShowDialog();
