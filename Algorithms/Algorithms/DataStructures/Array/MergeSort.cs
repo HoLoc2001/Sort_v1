@@ -62,10 +62,8 @@ namespace Algorithms.DataStructures.Array
             if (l < r)
             {
                 int m = l + (r - l) / 2;
-
                 Merge_Sort(arr, l, m);
                 Merge_Sort(arr, m + 1, r);
-
                 merge(arr, l, m, r);
             }
         }

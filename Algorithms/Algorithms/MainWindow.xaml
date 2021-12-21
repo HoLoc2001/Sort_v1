@@ -8,6 +8,7 @@
         Title="Select" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Button x:Name="btn" Content="Sort" Margin="559,130,139.667,256" Click="btn_Sort"></Button>
+        <Button x:Name="btn1" Content="few" Margin="524,314,174.667,72" Click="btn1_Click"></Button>
         <Button x:Name="btnAnimation" Margin="559,220,139.667,167" Content="Animation"></Button>
         <RadioButton x:Name="rbBubble" Content="Bubble Sort" Margin="97,139,578.333,255.667" x:FieldModifier="public"></RadioButton>
         <RadioButton x:Name="rbQuick" Content="Quick Sort" Margin="216,139,459.667,256" x:FieldModifier="public"></RadioButton>

@@ -54,14 +54,13 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
             int i = 0;
             while (true)
             {
-                if (node == null)
+                if (node.prev == null)
                 {
-                    break;
+                    return i;
                 }
-                    node = node.prev;
-                    i++;
+                node = node.prev;
+                i++;
             }
-            return i;
         }
          
         Node GetLastNode(Node node)
@@ -91,11 +90,15 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
 
         public Node getNode(Node node, int n)//node = GetHeadNode(), n = index
         {
+            if(n == 0)
+            {
+                return head;
+            }
             for (int i = 0; i < n; i++)
             {
                 if (node.next == null)
                 {
-                    break;
+                    return node;
                 }
                 node = node.next;
             }
@@ -107,8 +110,8 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
         public void Bubble_sort()
         {
             Node current = null;
-            bool Swapped = false;
-            do
+            bool Swapped = true;
+            while (Swapped) 
             {
                 current = head;
                 Swapped = false;
@@ -121,7 +124,7 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
                     }
                     current = current.next;
                 }
-            } while (Swapped);
+            } 
         }
 
         public void Bubble_sort_animation(Canvas canvas1)
@@ -201,7 +204,7 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
         #region HeapSort
         public void Heap_sort(Node h, int n) //n = size
         {
-            for (Node i = getNode(h, n / 2 - 1); i != h; i = i.prev)
+            for (Node i = getNode(h, n / 2 - 1); i == head || i != null; i = i.prev)
             {
                 heapify(n, i);
             }
@@ -216,10 +219,10 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
         {
             Node largest = i;
             Node left = getNode(head, getIndex(i) * 2 + 1) == null ? getNode(head,n) : getNode(head, getIndex(i) * 2 + 1);
-            Node right = left.next == null ? getNode(head, n) : left.next;
+            Node right = left.next == null ? left : left.next;
             if (getIndex(left) < n && left.data > largest.data)
                 largest = left;
-            if ((double)getIndex(right) < n && (double)right.data > largest.data)
+            if (getIndex(right) < n && (double)right.data > largest.data && left != right)
                 largest = right;
             if (largest != i)
             {
@@ -277,26 +280,50 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
     
         #endregion
 
-        #region MergeSort
-        public void Merge_sort()
-        {
+        
 
-        }
-        #endregion
-
-        #region CombSort
-        public void Comb_sort()
-        {
-
-        }
-        #endregion
 
         #region CocktailSort
         public void Cocktail_sort()
         {
-
+            Node currentHead = null;
+            Node currentTail = null;
+            bool Swapped = true;
+            
+            while (Swapped)
+            {
+                currentHead = head;
+                currentTail = tail;
+                Swapped = false;
+                while (currentHead != null && currentHead.next != null)
+                {
+                    if (currentHead.data > currentHead.next.data)
+                    {
+                        Swapped = true;
+                        Sort.Swap(ref currentHead.data, ref currentHead.next.data);
+                    }
+                    currentHead = currentHead.next;
+                }
+                if (Swapped == false)
+                    break;
+                Swapped = false;
+                currentTail = currentTail.prev;
+                while (currentTail != null && currentTail.prev != null)
+                {
+                    if (currentTail.data > currentTail.next.data)
+                    {
+                        Swapped = true;
+                        Sort.Swap(ref currentTail.data, ref currentTail.next.data);
+                    }
+                    currentTail = currentTail.prev;
+                }
+                currentHead = currentHead.next;
+            }
         }
         #endregion
+
+
+     
     }
 
 

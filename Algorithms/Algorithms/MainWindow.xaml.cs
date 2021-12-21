@@ -97,5 +97,11 @@ namespace Algorithms
                 this.Show();
             }
         }
+
+        private void btn1_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 f = new Window1();
+            f.Show();
+        }
     }
 }

@@ -186,7 +186,7 @@ namespace Algorithms
             else if (checkHeapSort)
             {
                 start.Start();
-                Linked_List.Heap_sort(Linked_List.GetHeadNode(Linked_List), Linked_List.Size());
+                Linked_List.Heap_sort(Linked_List.GetHeadNode(Linked_List), length);
                 start.Stop();
             }
             else if (checkSelectionSort)
@@ -201,13 +201,13 @@ namespace Algorithms
                 Linked_List.Insertion_sort();
                 start.Stop();
             }
-            else if (checkMergeSort)
+            else if (checkCocktailSort)
             {
                 start.Start();
-                Linked_List.Merge_sort();
+                Linked_List.Cocktail_sort();
                 start.Stop();
             }
-            
+
             Node node = Linked_List.GetHeadNode(Linked_List);
             while (node != null && node != null)
             {
