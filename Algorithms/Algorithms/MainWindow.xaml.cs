@@ -27,23 +27,17 @@ namespace Algorithms
         private void btn_Sort(object sender, RoutedEventArgs e)
         {
             if (rbBubble.IsChecked == true || rbQuick.IsChecked == true || rbHead.IsChecked == true || 
-                rbInsertion.IsChecked == true || rbSelection.IsChecked == true || rbMerge.IsChecked == true ||
-                rbCocktail.IsChecked == true || rbComb.IsChecked == true || rbStooge.IsChecked == true ||
-                rbCycle.IsChecked == true || rbPancake.IsChecked == true || rbShell.IsChecked == true)
+                rbInsertion.IsChecked == true || rbSelection.IsChecked == true || rbCocktail.IsChecked == true )
             {
-                Sort sort = new Sort();
-                sort.checkBubbleSort = (bool)rbBubble.IsChecked;
-                sort.checkQuickSort = (bool)rbQuick.IsChecked;
-                sort.checkHeapSort = (bool)rbHead.IsChecked;
-                sort.checkInsertionSort = (bool)rbInsertion.IsChecked;
-                sort.checkMergeSort = (bool)rbMerge.IsChecked;
-                sort.checkSelectionSort = (bool)rbSelection.IsChecked;
-                sort.checkCombSort = (bool)rbComb.IsChecked;
-                sort.checkCocktailSort = (bool)rbCocktail.IsChecked;
-                sort.checkStoogeSort = (bool)rbStooge.IsChecked;
-                sort.checkCycleSort = (bool)rbCycle.IsChecked;
-                sort.checkPancakeSort = (bool)rbPancake.IsChecked;
-                sort.checkShellSort = (bool)rbShell.IsChecked;
+                Sort sort = new Sort
+                {
+                    checkBubbleSort = (bool)rbBubble.IsChecked,
+                    checkQuickSort = (bool)rbQuick.IsChecked,
+                    checkHeapSort = (bool)rbHead.IsChecked,
+                    checkInsertionSort = (bool)rbInsertion.IsChecked,
+                    checkSelectionSort = (bool)rbSelection.IsChecked,
+                    checkCocktailSort = (bool)rbCocktail.IsChecked
+                };
                 if (sort.checkBubbleSort)
                 {
                     sort.txbAlgorithms.Text = "Bubble Sort";
@@ -60,37 +54,13 @@ namespace Algorithms
                 {
                     sort.txbAlgorithms.Text = "Insertion Sort";
                 }
-                else if (sort.checkMergeSort)
-                {
-                    sort.txbAlgorithms.Text = "Merge Sort";
-                }
                 else if (sort.checkSelectionSort)
                 {
                     sort.txbAlgorithms.Text = "Selection Sort";
                 }
-                else if (sort.checkCombSort)
-                {
-                    sort.txbAlgorithms.Text = "Comb Sort";
-                }
                 else if (sort.checkCocktailSort)
                 {
                     sort.txbAlgorithms.Text = "Cocktail Sort";
-                }
-                else if (sort.checkStoogeSort)
-                {
-                    sort.txbAlgorithms.Text = "Stooge Sort";
-                }
-                else if (sort.checkCycleSort)
-                {
-                    sort.txbAlgorithms.Text = "Cycle Sort";
-                }
-                else if (sort.checkPancakeSort)
-                {
-                    sort.txbAlgorithms.Text = "Pancake Sort";
-                }
-                else if (sort.checkShellSort)
-                {
-                    sort.txbAlgorithms.Text = "Shell Sort";
                 }
                 this.Hide();
                 sort.ShowDialog();
@@ -98,10 +68,55 @@ namespace Algorithms
             }
         }
 
-        private void btn1_Click(object sender, RoutedEventArgs e)
+        
+        private void btnAnimation_Click(object sender, RoutedEventArgs e)
         {
-            Window1 f = new Window1();
-            f.Show();
+            if (rbBubble.IsChecked == true || rbQuick.IsChecked == true || rbHead.IsChecked == true ||
+                rbInsertion.IsChecked == true || rbSelection.IsChecked == true || rbCocktail.IsChecked == true)
+            {
+                Sort sort = new Sort
+                {
+                    checkBubbleSort = (bool)rbBubble.IsChecked,
+                    checkQuickSort = (bool)rbQuick.IsChecked,
+                    checkHeapSort = (bool)rbHead.IsChecked,
+                    checkInsertionSort = (bool)rbInsertion.IsChecked,
+                    checkSelectionSort = (bool)rbSelection.IsChecked,
+                    checkCocktailSort = (bool)rbCocktail.IsChecked,
+                    isAnimation = true
+                };
+                if (sort.checkBubbleSort)
+                {
+                    sort.txbAlgorithms.Text = "Bubble Sort";
+                }
+                else if (sort.checkQuickSort)
+                {
+                    sort.txbAlgorithms.Text = "Quick Sort";
+                }
+                else if (sort.checkHeapSort)
+                {
+                    sort.txbAlgorithms.Text = "Heap Sort";
+                }
+                else if (sort.checkInsertionSort)
+                {
+                    sort.txbAlgorithms.Text = "Insertion Sort";
+                }
+                else if (sort.checkSelectionSort)
+                {
+                    sort.txbAlgorithms.Text = "Selection Sort";
+                }
+                else if (sort.checkCocktailSort)
+                {
+                    sort.txbAlgorithms.Text = "Cocktail Sort";
+                }
+                sort.btnSortLinkedList.Visibility = Visibility.Hidden;
+                sort.btnSortLinkedList.Visibility = Visibility.Collapsed;
+                sort.LinkedListTime.Visibility = Visibility.Hidden;
+                sort.LinkedListTime.Visibility = Visibility.Collapsed;
+                sort.btnSortArray.Content = "Sort";
+                this.Hide();
+                sort.ShowDialog();
+                this.Show();
+            }
         }
     }
 }

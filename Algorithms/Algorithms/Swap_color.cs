@@ -29,6 +29,13 @@ namespace Algorithms
             canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
             canvas.Children[j + 1].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
         }
+        public static void start_Swap_Color_reverse(Canvas canvas, int j)
+        {
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
+            canvas.Children[j - 1].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
+        }
+
+
         public static void start_Swap_Color(Canvas canvas, int i, int j)
         {
             for (; i <= j; i++)
@@ -41,6 +48,11 @@ namespace Algorithms
         {
             canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));
             canvas.Children[j + 1].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));
+        }
+        public static void sort_Swap_Color_reverse(Canvas canvas, int j)
+        {
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));
+            canvas.Children[j - 1].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));
         }
         public static void sort_Swap_Color(Canvas canvas, int i, int j)
         {

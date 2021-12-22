@@ -15,5 +15,3 @@ E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.csproj.GenerateResource.cach
 E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.csproj.CoreCompileInputs.cache
 E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.exe
 E:\doan1\Algorithms\Algorithms\obj\Debug\Algorithms.pdb
-E:\doan1\Algorithms\Algorithms\obj\Debug\Window1.g.cs
-E:\doan1\Algorithms\Algorithms\obj\Debug\Window1.baml

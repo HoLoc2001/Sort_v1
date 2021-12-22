@@ -41,15 +41,9 @@ namespace Algorithms
         public bool checkHeapSort = false;
         public bool checkSelectionSort = false;
         public bool checkInsertionSort = false;
-        public bool checkMergeSort = false;
-        public bool checkCombSort = false;
-        public bool checkCocktailSort = false; 
-        public bool checkStoogeSort = false;
-        public bool checkCycleSort = false;
-        public bool checkPancakeSort = false;
-        public bool checkShellSort = false;
+        public bool checkCocktailSort = false;
+        public bool isAnimation = false;
         Doublely_LinkedList Linked_List = new Doublely_LinkedList();
-
 
         public Sort()
         {
@@ -221,7 +215,6 @@ namespace Algorithms
         private void btnSortArray_Click(object sender, RoutedEventArgs e)
         {
             Stopwatch start = new Stopwatch();
-            //Array.Sort(array);
             if (checkBubbleSort)
             {
                 start.Start();
@@ -252,46 +245,10 @@ namespace Algorithms
                 InsertionSort.Insertion_sort(array);
                 start.Stop();
             }
-            else if (checkMergeSort)
-            {
-                start.Start();
-                MergeSort.Merge_Sort(array, 0, array.Length - 1);
-                start.Stop();
-            }
-            else if (checkCombSort)
-            {
-                start.Start();
-                CombSort.Comb_sort(array);
-                start.Stop();
-            }
             else if (checkCocktailSort)
             {
                 start.Start();
                 CocktailSort.Cocktail_sort(array);
-                start.Stop();
-            }
-            else if (checkStoogeSort)
-            {
-                start.Start();
-                StoogeSort.Stooge_sort(array, 0, array.Length - 1);
-                start.Stop();
-            }
-            else if (checkCycleSort)
-            {
-                start.Start();
-                CycleSort.Cycle_sort(array, array.Length);
-                start.Stop();
-            }
-            else if (checkPancakeSort)
-            {
-                start.Start();
-                PancakeSort.Pancake_sort(array, array.Length);
-                start.Stop();
-            }
-            else if (checkShellSort)
-            {
-                start.Start();
-                ShellSort.Shell_sort(array);
                 start.Stop();
             }
             for (int i = 0; i < array.Length; i++)

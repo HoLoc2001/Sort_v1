@@ -57,24 +57,15 @@
     </ApplicationDefinition>
     <Compile Include="DataStructures\Array\BublleSort.cs" />
     <Compile Include="DataStructures\Array\CocktailSort.cs" />
-    <Compile Include="DataStructures\Array\CombSort.cs" />
-    <Compile Include="DataStructures\Array\CycleSort.cs" />
     <Compile Include="DataStructures\Array\HeapSort.cs" />
     <Compile Include="DataStructures\Array\InsertionSort.cs" />
-    <Compile Include="DataStructures\Array\MergeSort.cs" />
-    <Compile Include="DataStructures\Array\PancakeSort.cs" />
     <Compile Include="DataStructures\Array\QuickSort.cs" />
     <Compile Include="DataStructures\Array\SelectionSort.cs" />
-    <Compile Include="DataStructures\Array\ShellSort.cs" />
-    <Compile Include="DataStructures\Array\StoogeSort.cs" />
     <Compile Include="DataStructures\Doublely_LinkedList\Doublely_LinkedList.cs" />
     <Compile Include="Sort.xaml.cs">
       <DependentUpon>Sort.xaml</DependentUpon>
     </Compile>
     <Compile Include="Swap_color.cs" />
-    <Compile Include="Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,10 +79,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Sort.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
