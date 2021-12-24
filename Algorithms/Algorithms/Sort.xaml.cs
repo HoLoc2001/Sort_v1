@@ -214,48 +214,77 @@ namespace Algorithms
 
         private void btnSortArray_Click(object sender, RoutedEventArgs e)
         {
-            Stopwatch start = new Stopwatch();
-            if (checkBubbleSort)
+            if (!isAnimation)
             {
-                start.Start();
-                BublleSort.Bubble_sort(array);
-                start.Stop();
+                Stopwatch start = new Stopwatch();
+                if (checkBubbleSort)
+                {
+                    start.Start();
+                    BublleSort.Bubble_sort(array);
+                    start.Stop();
+                }
+                else if (checkQuickSort)
+                {
+                    start.Start();
+                    QuickSort.Quick_sort(array, 0, array.Length - 1);
+                    start.Stop();
+                }
+                else if (checkHeapSort)
+                {
+                    start.Start();
+                    HeapSort.Heap_sort(array, array.Length);
+                    start.Stop();
+                }
+                else if (checkSelectionSort)
+                {
+                    start.Start();
+                    SelectionSort.Selection_sort(array);
+                    start.Stop();
+                }
+                else if (checkInsertionSort)
+                {
+                    start.Start();
+                    InsertionSort.Insertion_sort(array);
+                    start.Stop();
+                }
+                else if (checkCocktailSort)
+                {
+                    start.Start();
+                    CocktailSort.Cocktail_sort(array);
+                    start.Stop();
+                }
+                for (int i = 0; i < array.Length; i++)
+                {
+                    canvas1.Children[i].SetValue(Rectangle.HeightProperty, array[i]);
+                }
+                ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
             }
-            else if (checkQuickSort)
+            else
             {
-                start.Start();
-                QuickSort.Quick_sort(array, 0, array.Length - 1);
-                start.Stop();
+                if (checkBubbleSort)
+                {
+                    BublleSort.Bubble_sort_animation(array, canvas1);
+                }else if (checkQuickSort)
+                {
+                    QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                }
+                else if (checkHeapSort)
+                {
+                    QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                }
+                else if (checkCocktailSort)
+                {
+                    CocktailSort.Cocktail_sort_animation(array, canvas1);
+                }
+                else if (checkInsertionSort)
+                {
+                    InsertionSort.Insertion_sort_animation(array, canvas1);
+                }
+                else if (checkSelectionSort)
+                {
+                    QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                }
             }
-            else if (checkHeapSort)
-            {
-                start.Start();
-                HeapSort.Heap_sort(array, array.Length);
-                start.Stop();
-            }
-            else if (checkSelectionSort)
-            {
-                start.Start();
-                SelectionSort.Selection_sort(array);
-                start.Stop();
-            }
-            else if (checkInsertionSort)
-            {
-                start.Start();
-                InsertionSort.Insertion_sort(array);
-                start.Stop();
-            }
-            else if (checkCocktailSort)
-            {
-                start.Start();
-                CocktailSort.Cocktail_sort(array);
-                start.Stop();
-            }
-            for (int i = 0; i < array.Length; i++)
-            {
-                canvas1.Children[i].SetValue(Rectangle.HeightProperty, array[i]);
-            }
-            ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
         }
     }
 }

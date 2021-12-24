@@ -55,7 +55,7 @@ namespace Algorithms.DataStructures.Array
             }
         }
 
-        public static void Quick_sort_animation(double[] arr, int left, int right, Canvas canvas1)//left: diem dau, right: diem cuoi
+        public static void Quick_sort_animation(double[] arr, int left, int right, Canvas canvas)//left: diem dau, right: diem cuoi
         {
             if (left <= right)
             {
@@ -77,35 +77,35 @@ namespace Algorithms.DataStructures.Array
 
                 while (l <= r)
                 {
-                    Swap_color.Swap_Color_Blue(canvas1, l);
-                    Swap_color.Swap_Color_Green(canvas1, r);
+                    Swap_color.Swap_Color_Blue(canvas, l);
+                    Swap_color.Swap_Color_Green(canvas, r);
                     Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     while (arr[l] < pivot)
                     {
-                        Swap_color.Swap_Color_Black(canvas1, l);
+                        Swap_color.Swap_Color_Black(canvas, l);
                         l++;
-                        Swap_color.Swap_Color_Blue(canvas1, l);
+                        Swap_color.Swap_Color_Blue(canvas, l);
                         Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     }
                     while (arr[r] > pivot)
                     {
-                        Swap_color.Swap_Color_Black(canvas1, r);
+                        Swap_color.Swap_Color_Black(canvas, r);
                         r--;
-                        Swap_color.Swap_Color_Green(canvas1, r);
+                        Swap_color.Swap_Color_Green(canvas, r);
                         Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     }
                     if (l <= r)
                     {
-                        Swap_color.sort_Swap_Color(canvas1, l, r);
+                        Swap_color.sort_Swap_Color(canvas, l, r);
                         Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
-                        canvas1.Children[l].SetValue(Rectangle.HeightProperty, arr[r]);
-                        canvas1.Children[r].SetValue(Rectangle.HeightProperty, arr[l]);
+                        canvas.Children[l].SetValue(Rectangle.HeightProperty, arr[r]);
+                        canvas.Children[r].SetValue(Rectangle.HeightProperty, arr[l]);
                         Swap(ref arr[l], ref arr[r]);
-                        Swap_color.end_Swap_Color(canvas1, l, r);
+                        Swap_color.end_Swap_Color(canvas, l, r);
                         Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));
                         l++;
@@ -113,12 +113,12 @@ namespace Algorithms.DataStructures.Array
                     }
                     else
                     {
-                        Swap_color.Swap_Color_Black(canvas1, l);
-                        Swap_color.Swap_Color_Black(canvas1, r);
+                        Swap_color.Swap_Color_Black(canvas, l);
+                        Swap_color.Swap_Color_Black(canvas, r);
                     }
                 }
-                if (left < r) Quick_sort_animation(arr, left, r, canvas1);
-                if (right > l) Quick_sort_animation(arr, l, right, canvas1);
+                if (left < r) Quick_sort_animation(arr, left, r, canvas);
+                if (right > l) Quick_sort_animation(arr, l, right, canvas);
             }
         }
         #endregion

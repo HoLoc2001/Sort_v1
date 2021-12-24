@@ -108,11 +108,23 @@ namespace Algorithms
                 {
                     sort.txbAlgorithms.Text = "Cocktail Sort";
                 }
+                TextBlock textBlock = new TextBlock();
+                textBlock.Text = "asdasd";
+                textBlock.Margin = new Thickness(868, 10, 111.667, 582);
+                TextBlock textBlock1 = new TextBlock();
+                textBlock1.Text = "asdasqwdqwdd";
+                textBlock1.Margin = new Thickness(868, 10, 111.667, 582);
+
                 sort.btnSortLinkedList.Visibility = Visibility.Hidden;
                 sort.btnSortLinkedList.Visibility = Visibility.Collapsed;
                 sort.LinkedListTime.Visibility = Visibility.Hidden;
-                sort.LinkedListTime.Visibility = Visibility.Collapsed;
+                sort.LinkedListTime.Visibility = Visibility.Collapsed; 
+                sort.ArrayTime.Visibility = Visibility.Hidden;
+                sort.ArrayTime.Visibility = Visibility.Collapsed;
                 sort.btnSortArray.Content = "Sort";
+                sort.grid1.Children.Add(textBlock); 
+                sort.grid1.Children.Add(textBlock1);
+
                 this.Hide();
                 sort.ShowDialog();
                 this.Show();

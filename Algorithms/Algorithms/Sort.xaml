@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Sort" Height="650" Width="1200" Foreground="#FF930F0F" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
-        <Grid>
+        <Grid x:Name="grid1">
             <Slider x:Name="sliderNumber" Minimum="0" Maximum="2000" Margin="129,10,880.667,579" IsSnapToTickEnabled="True" ValueChanged="sliderNumber_ValueChanged"/>
             <TextBlock x:Name="ArrayTime" Background="#EEEEEE" Margin="868,10,111.667,582" />
             <TextBlock x:Name="LinkedListTime" Background="#EEEEEE" Margin="531,10,468.667,582" />

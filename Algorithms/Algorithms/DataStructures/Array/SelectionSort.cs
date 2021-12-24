@@ -35,5 +35,26 @@ namespace Algorithms.DataStructures.Array
         }
 
         #endregion
+
+        public static void Selection_sort_animation(double[] arr, Canvas canvas)
+        {
+            int length = arr.Length;
+            int i, j;
+            for (i = 0; i < length; i++)
+            {
+                int minIndex = i;
+                for (j = i + 1; j < length; j++)
+                {
+                    if (arr[j] < arr[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+                if (minIndex != i)
+                {
+                    Swap(ref arr[minIndex], ref arr[i]);
+                }
+            }
+        }
     }
 }

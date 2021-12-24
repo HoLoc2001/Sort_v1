@@ -14,11 +14,11 @@ namespace Algorithms
     {
         public static void Swap_Color_Green(Canvas canvas, int j)
         {
-            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Violet));
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Green));
         }
         public static void Swap_Color_Blue(Canvas canvas, int j)
         {
-            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Yellow));
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
         }
         public static void Swap_Color_Black(Canvas canvas, int j)
         {
@@ -38,10 +38,9 @@ namespace Algorithms
 
         public static void start_Swap_Color(Canvas canvas, int i, int j)
         {
-            for (; i <= j; i++)
-            {
-                canvas.Children[i].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
-            }
+            
+            canvas.Children[i].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
+            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Blue));
 
         }
         public static void sort_Swap_Color(Canvas canvas, int j)
