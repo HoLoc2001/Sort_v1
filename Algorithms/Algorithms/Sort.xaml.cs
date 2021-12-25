@@ -31,6 +31,7 @@ namespace Algorithms
     public partial class Sort
     {
         public delegate void EmptyDelegate();
+        public static double numberTime = 0;
         int Number;
         double[] array;
         double countWidth = 0;
@@ -285,6 +286,13 @@ namespace Algorithms
                     QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
                 }
             }
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Close();
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }

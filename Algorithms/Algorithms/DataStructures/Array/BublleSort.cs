@@ -32,9 +32,10 @@ namespace Algorithms.DataStructures.Array
                 count++;
             } while (Swapped);
         }
-
+        
         public static void Bubble_sort_animation(double[] arr, Canvas canvas)
         {
+            
             int lenght = arr.Length;
             int count = 1;
             for (int i = 0; i < lenght; i++)
@@ -43,21 +44,21 @@ namespace Algorithms.DataStructures.Array
                 {
                     Swap_color.start_Swap_Color(canvas, j);
                     Refresh();
-                    Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                     if (arr[j] > arr[j + 1])
                     {
                         Swap_color.sort_Swap_Color(canvas, j);
                         Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                         canvas.Children[j].SetValue(Rectangle.HeightProperty, arr[j + 1]);
                         canvas.Children[j + 1].SetValue(Rectangle.HeightProperty, arr[j]);
                         Swap(ref arr[j], ref arr[j + 1]);
                         Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                     }
                     Swap_color.end_Swap_Color(canvas, j);
                     Refresh();
-                    Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                 }
                 count++;
             }

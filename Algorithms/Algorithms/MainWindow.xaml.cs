@@ -19,6 +19,8 @@ namespace Algorithms
     /// </summary>
     public partial class MainWindow : Window
     {
+        public RoutedEventHandler ValueChanged { get; private set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -68,7 +70,28 @@ namespace Algorithms
             }
         }
 
-        
+
+        public TextBlock numberTime = new TextBlock
+        {
+            Margin = new Thickness(790, 10, 350, 582),
+            Text = "0"
+        };
+
+        public Slider sliderTime = new Slider
+        {
+            Minimum = 0,
+            Maximum = 10,
+            IsSnapToTickEnabled = true,
+            Margin = new Thickness(568, 10, 411, 582),
+
+        };
+
+        public Button btnPause = new Button
+        {
+            Content = "Pause",
+            Margin = new Thickness(850, 10, 250, 582),
+        };
+
         private void btnAnimation_Click(object sender, RoutedEventArgs e)
         {
             if (rbBubble.IsChecked == true || rbQuick.IsChecked == true || rbHead.IsChecked == true ||
@@ -108,12 +131,13 @@ namespace Algorithms
                 {
                     sort.txbAlgorithms.Text = "Cocktail Sort";
                 }
-                TextBlock textBlock = new TextBlock();
-                textBlock.Text = "asdasd";
-                textBlock.Margin = new Thickness(868, 10, 111.667, 582);
-                TextBlock textBlock1 = new TextBlock();
-                textBlock1.Text = "asdasqwdqwdd";
-                textBlock1.Margin = new Thickness(868, 10, 111.667, 582);
+                
+                
+
+                
+                sliderTime.ValueChanged += SliderTime_ValueChanged;
+                
+                
 
                 sort.btnSortLinkedList.Visibility = Visibility.Hidden;
                 sort.btnSortLinkedList.Visibility = Visibility.Collapsed;
@@ -122,13 +146,19 @@ namespace Algorithms
                 sort.ArrayTime.Visibility = Visibility.Hidden;
                 sort.ArrayTime.Visibility = Visibility.Collapsed;
                 sort.btnSortArray.Content = "Sort";
-                sort.grid1.Children.Add(textBlock); 
-                sort.grid1.Children.Add(textBlock1);
-
+                sort.grid1.Children.Add(sliderTime);
+                sort.grid1.Children.Add(numberTime);
+                sort.grid1.Children.Add(btnPause);
                 this.Hide();
                 sort.ShowDialog();
                 this.Show();
             }
+        }
+
+        private void SliderTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            numberTime.Text = (sliderTime.Value/10).ToString();
+            Sort.numberTime = sliderTime.Value / 10;
         }
     }
 }

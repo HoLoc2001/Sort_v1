@@ -49,16 +49,16 @@ namespace Algorithms.DataStructures.Array
                     canvas.Children[j + 1].SetValue(Rectangle.HeightProperty, arr[j]);
                     arr[j + 1] = arr[j];
                     Swap_color.end_Swap_Color(canvas, j);
-                    Refresh();
-                    Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                    //Refresh();
+                    //Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     j = j - 1;
                 }
-                Swap_color.Swap_Color_Black(canvas, i);
-                Refresh();
-                Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                //Refresh();
+                //Thread.Sleep(TimeSpan.FromSeconds(1));
                 canvas.Children[j + 1].SetValue(Rectangle.HeightProperty, key);
                 arr[j + 1] = key;
-                Swap_color.Swap_Color_Green(canvas, j +1);
+                //Swap_color.Swap_Color_Green(canvas, j + 1);
+                Swap_color.Swap_Color_Black(canvas, i);
                 Refresh();
                 Thread.Sleep(TimeSpan.FromSeconds(0.2));
             }
