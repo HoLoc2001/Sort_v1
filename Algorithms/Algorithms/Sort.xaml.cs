@@ -44,6 +44,7 @@ namespace Algorithms
         public bool checkInsertionSort = false;
         public bool checkCocktailSort = false;
         public bool isAnimation = false;
+        public static bool isClose = false;
         Doublely_LinkedList Linked_List = new Doublely_LinkedList();
 
         public Sort()
@@ -59,7 +60,10 @@ namespace Algorithms
 
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
-            random();
+            if (sliderNumber.Value > 0)
+            {
+                random();
+            }
         }
 
         private void NumberTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -67,25 +71,7 @@ namespace Algorithms
             if (NumberTextBox.Text != " " && !string.IsNullOrEmpty(NumberTextBox.Text) && double.TryParse(NumberTextBox.Text, out double b)) { sliderNumber.Value = Convert.ToDouble(NumberTextBox.Text); }
         }
 
-        void sort_array_animation()
-        {
-            if (checkBubbleSort)
-            {
-                Stopwatch start = new Stopwatch();
-                start.Start();
-                DataStructures.Array.BublleSort.Bubble_sort_animation(array, canvas1);
-                start.Stop();
-                ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-            }
-            else if (checkQuickSort)
-            {
-                Stopwatch start = new Stopwatch();
-                start.Start();
-                DataStructures.Array.QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
-                start.Stop();
-                ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-            }
-        }
+        
 
         void random()
         {
@@ -127,20 +113,23 @@ namespace Algorithms
         }
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
-            array = (double[])arrayClone.Clone();
-            if (canvas1 != null) { canvas1.Children.Clear(); }
-            countWidth = 0;
-            int maxWidth = 1160;
-            for (int i = 0; i < array.Length; i++)
+            if (sliderNumber.Value > 0)
             {
-                Rectangle rtgNext = new Rectangle();
-                rtgNext.Width = maxWidth / (double)Number;
-                rtgNext.Height = array[i];
-                rtgNext.Fill = new SolidColorBrush(Colors.Black);
-                Canvas.SetLeft(rtgNext, countWidth);
-                Canvas.SetBottom(rtgNext, 0);
-                canvas1.Children.Add(rtgNext);
-                countWidth = countWidth + (maxWidth / (double)Number);
+                array = (double[])arrayClone.Clone();
+                if (canvas1 != null) { canvas1.Children.Clear(); }
+                countWidth = 0;
+                int maxWidth = 1160;
+                for (int i = 0; i < array.Length; i++)
+                {
+                    Rectangle rtgNext = new Rectangle();
+                    rtgNext.Width = maxWidth / (double)Number;
+                    rtgNext.Height = array[i];
+                    rtgNext.Fill = new SolidColorBrush(Colors.Black);
+                    Canvas.SetLeft(rtgNext, countWidth);
+                    Canvas.SetBottom(rtgNext, 0);
+                    canvas1.Children.Add(rtgNext);
+                    countWidth = countWidth + (maxWidth / (double)Number);
+                }
             }
         }
 
@@ -148,6 +137,8 @@ namespace Algorithms
         {
             Dispatcher.CurrentDispatcher.Invoke(DispatcherPriority.Background, new EmptyDelegate(delegate { }));
         }
+
+       
 
         public static void Swap<T>(ref T a, ref T b)
         {
@@ -158,139 +149,151 @@ namespace Algorithms
 
         private void btnSortLinkedList_Click(object sender, RoutedEventArgs e)
         {
-            Linked_List.clear();
-            int length = array.Length, i = 0;
-            for (int j = 0; j < length; j++)
+            if (sliderNumber.Value > 0)
             {
-                Linked_List.addLast(Linked_List, array[j]);
-            }
-            Stopwatch start = new Stopwatch();
-            
-            if (checkBubbleSort)
-            {
-                start.Start();
-                Linked_List.Bubble_sort();
-                start.Stop();
-            }
-            else if (checkQuickSort)
-            {
-                start.Start();
-                Linked_List.QuickSort(Linked_List.GetHeadNode(Linked_List));
-                start.Stop();
-            }
-            else if (checkHeapSort)
-            {
-                start.Start();
-                Linked_List.Heap_sort(Linked_List.GetHeadNode(Linked_List), length);
-                start.Stop();
-            }
-            else if (checkSelectionSort)
-            {
-                start.Start();
-                Linked_List.Selection_sort();
-                start.Stop();
-            }
-            else if (checkInsertionSort)
-            {
-                start.Start();
-                Linked_List.Insertion_sort();
-                start.Stop();
-            }
-            else if (checkCocktailSort)
-            {
-                start.Start();
-                Linked_List.Cocktail_sort();
-                start.Stop();
-            }
-
-            Node node = Linked_List.GetHeadNode(Linked_List);
-            while (node != null && node != null)
-            {
-                canvas1.Children[i].SetValue(Rectangle.HeightProperty, node.data);
-                node = node.next;
-                i++;
-            }
-            LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
-        }
-
-        private void btnSortArray_Click(object sender, RoutedEventArgs e)
-        {
-            if (!isAnimation)
-            {
+                Linked_List.clear();
+                int length = array.Length, i = 0;
+                for (int j = 0; j < length; j++)
+                {
+                    Linked_List.addLast(Linked_List, array[j]);
+                }
                 Stopwatch start = new Stopwatch();
+
                 if (checkBubbleSort)
                 {
                     start.Start();
-                    BublleSort.Bubble_sort(array);
+                    Linked_List.Bubble_sort();
                     start.Stop();
                 }
                 else if (checkQuickSort)
                 {
                     start.Start();
-                    QuickSort.Quick_sort(array, 0, array.Length - 1);
+                    Linked_List.QuickSort(Linked_List.GetHeadNode(Linked_List));
                     start.Stop();
                 }
                 else if (checkHeapSort)
                 {
                     start.Start();
-                    HeapSort.Heap_sort(array, array.Length);
+                    Linked_List.Heap_sort(Linked_List.GetHeadNode(Linked_List), length);
                     start.Stop();
                 }
                 else if (checkSelectionSort)
                 {
                     start.Start();
-                    SelectionSort.Selection_sort(array);
+                    Linked_List.Selection_sort();
                     start.Stop();
                 }
                 else if (checkInsertionSort)
                 {
                     start.Start();
-                    InsertionSort.Insertion_sort(array);
+                    Linked_List.Insertion_sort();
                     start.Stop();
                 }
                 else if (checkCocktailSort)
                 {
                     start.Start();
-                    CocktailSort.Cocktail_sort(array);
+                    Linked_List.Cocktail_sort();
                     start.Stop();
                 }
-                for (int i = 0; i < array.Length; i++)
+
+                Node node = Linked_List.GetHeadNode(Linked_List);
+                while (node != null && node != null)
                 {
-                    canvas1.Children[i].SetValue(Rectangle.HeightProperty, array[i]);
+                    canvas1.Children[i].SetValue(Rectangle.HeightProperty, node.data);
+                    node = node.next;
+                    i++;
                 }
-                ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
+                LinkedListTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
             }
-            else
+        }
+
+        private void btnSortArray_Click(object sender, RoutedEventArgs e)
+        {
+            if (sliderNumber.Value > 0)
             {
-                if (checkBubbleSort)
+                if (!isAnimation)
                 {
-                    BublleSort.Bubble_sort_animation(array, canvas1);
-                }else if (checkQuickSort)
-                {
-                    QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                    Stopwatch start = new Stopwatch();
+                    if (checkBubbleSort)
+                    {
+                        start.Start();
+                        BublleSort.Bubble_sort(array);
+                        start.Stop();
+                    }
+                    else if (checkQuickSort)
+                    {
+                        start.Start();
+                        QuickSort.Quick_sort(array, 0, array.Length - 1);
+                        start.Stop();
+                    }
+                    else if (checkHeapSort)
+                    {
+                        start.Start();
+                        HeapSort.Heap_sort(array, array.Length);
+                        start.Stop();
+                    }
+                    else if (checkSelectionSort)
+                    {
+                        start.Start();
+                        SelectionSort.Selection_sort(array);
+                        start.Stop();
+                    }
+                    else if (checkInsertionSort)
+                    {
+                        start.Start();
+                        InsertionSort.Insertion_sort(array);
+                        start.Stop();
+                    }
+                    else if (checkCocktailSort)
+                    {
+                        start.Start();
+                        CocktailSort.Cocktail_sort(array);
+                        start.Stop();
+                    }
+                    for (int i = 0; i < array.Length; i++)
+                    {
+                        canvas1.Children[i].SetValue(Rectangle.HeightProperty, array[i]);
+                    }
+                    ArrayTime.Text = $"{start.Elapsed.Ticks * 100:#,###} nanoseconds";
                 }
-                else if (checkHeapSort)
+                else
                 {
-                    QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
-                }
-                else if (checkCocktailSort)
-                {
-                    CocktailSort.Cocktail_sort_animation(array, canvas1);
-                }
-                else if (checkInsertionSort)
-                {
-                    InsertionSort.Insertion_sort_animation(array, canvas1);
-                }
-                else if (checkSelectionSort)
-                {
-                    QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                    if (checkBubbleSort)
+                    {
+                        BublleSort.Bubble_sort_animation(array, canvas1);
+                    }
+                    else if (checkQuickSort)
+                    {
+                        QuickSort.Quick_sort_animation(array, 0, array.Length - 1, canvas1);
+                    }
+                    else if (checkHeapSort)
+                    {
+                        HeapSort.Heap_sort_animation(array,  array.Length , canvas1);
+                    }
+                    else if (checkCocktailSort)
+                    {
+                        CocktailSort.Cocktail_sort_animation(array, canvas1);
+                    }
+                    else if (checkInsertionSort)
+                    {
+                        InsertionSort.Insertion_sort_animation(array, canvas1);
+                    }
+                    else if (checkSelectionSort)
+                    {
+                        SelectionSort.Selection_sort_animation(array, canvas1);
+                    }
                 }
             }
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
+            isClose = true;
             this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {            
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
         }

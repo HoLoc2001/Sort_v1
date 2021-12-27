@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Algorithms"
         mc:Ignorable="d"
-        Title="Sort" Height="650" Width="1200" Foreground="#FF930F0F" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closed="Window_Closed">
+        Title="Sort" Height="650" Width="1200" Foreground="#FF930F0F" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" Closed="Window_Closed" Closing="Window_Closing">
     <Grid>
         <Grid x:Name="grid1">
             <Slider x:Name="sliderNumber" Minimum="0" Maximum="2000" Margin="129,10,880.667,579" IsSnapToTickEnabled="True" ValueChanged="sliderNumber_ValueChanged"/>

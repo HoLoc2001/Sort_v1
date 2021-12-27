@@ -23,6 +23,10 @@ namespace Algorithms.DataStructures.Array
                 swapped = false;
                 for (int i = start; i < end - 1; ++i)
                 {
+                    if (isClose)
+                    {
+                        return;
+                    }
                     if (arr[i] > arr[i + 1])
                     {
                         Swap(ref arr[i], ref arr[i + 1]);
@@ -35,6 +39,10 @@ namespace Algorithms.DataStructures.Array
                 end--;
                 for (int i = end - 1; i >= start; i--)
                 {
+                    if (isClose)
+                    {
+                        return;
+                    }
                     if (arr[i] > arr[i + 1])
                     {
                         Swap(ref arr[i], ref arr[i + 1]);

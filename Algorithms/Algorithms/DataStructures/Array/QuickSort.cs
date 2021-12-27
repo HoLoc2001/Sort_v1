@@ -57,6 +57,10 @@ namespace Algorithms.DataStructures.Array
 
         public static void Quick_sort_animation(double[] arr, int left, int right, Canvas canvas)//left: diem dau, right: diem cuoi
         {
+            if (isClose)
+            {
+                return;
+            }
             if (left <= right)
             {
                 double pivot;
@@ -77,12 +81,20 @@ namespace Algorithms.DataStructures.Array
 
                 while (l <= r)
                 {
+                    if (isClose)
+                    {
+                        return;
+                    }
                     Swap_color.Swap_Color_Blue(canvas, l);
                     Swap_color.Swap_Color_Green(canvas, r);
                     Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));
                     while (arr[l] < pivot)
                     {
+                        if (isClose)
+                        {
+                            return;
+                        }
                         Swap_color.Swap_Color_Black(canvas, l);
                         l++;
                         Swap_color.Swap_Color_Blue(canvas, l);
@@ -91,6 +103,10 @@ namespace Algorithms.DataStructures.Array
                     }
                     while (arr[r] > pivot)
                     {
+                        if (isClose)
+                        {
+                            return;
+                        }
                         Swap_color.Swap_Color_Black(canvas, r);
                         r--;
                         Swap_color.Swap_Color_Green(canvas, r);
@@ -99,6 +115,10 @@ namespace Algorithms.DataStructures.Array
                     }
                     if (l <= r)
                     {
+                        if (isClose)
+                        {
+                            return;
+                        }
                         Swap_color.sort_Swap_Color(canvas, l, r);
                         Refresh();
                         Thread.Sleep(TimeSpan.FromSeconds(0.2));

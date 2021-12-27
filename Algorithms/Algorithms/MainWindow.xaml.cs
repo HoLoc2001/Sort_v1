@@ -56,7 +56,7 @@ namespace Algorithms
                 {
                     sort.txbAlgorithms.Text = "Insertion Sort";
                 }
-                else if (sort.checkSelectionSort)
+                else if (sort.checkSelectionSort)       
                 {
                     sort.txbAlgorithms.Text = "Selection Sort";
                 }
@@ -64,9 +64,8 @@ namespace Algorithms
                 {
                     sort.txbAlgorithms.Text = "Cocktail Sort";
                 }
-                this.Hide();
+                this.Close();
                 sort.ShowDialog();
-                this.Show();
             }
         }
 
@@ -86,11 +85,6 @@ namespace Algorithms
 
         };
 
-        public Button btnPause = new Button
-        {
-            Content = "Pause",
-            Margin = new Thickness(850, 10, 250, 582),
-        };
 
         private void btnAnimation_Click(object sender, RoutedEventArgs e)
         {
@@ -131,10 +125,8 @@ namespace Algorithms
                 {
                     sort.txbAlgorithms.Text = "Cocktail Sort";
                 }
-                
-                
 
-                
+
                 sliderTime.ValueChanged += SliderTime_ValueChanged;
                 
                 
@@ -148,12 +140,12 @@ namespace Algorithms
                 sort.btnSortArray.Content = "Sort";
                 sort.grid1.Children.Add(sliderTime);
                 sort.grid1.Children.Add(numberTime);
-                sort.grid1.Children.Add(btnPause);
-                this.Hide();
+                this.Close();
                 sort.ShowDialog();
-                this.Show();
             }
         }
+
+        
 
         private void SliderTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {

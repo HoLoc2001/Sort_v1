@@ -35,6 +35,10 @@ namespace Algorithms.DataStructures.Array
             int length = arr.Length;
             for (int i = 1; i < length; ++i)
             {
+                if (isClose)
+                {
+                    return;
+                }
                 double key = arr[i];
                 Swap_color.Swap_Color_Green(canvas, i);
                 Refresh();
@@ -42,6 +46,10 @@ namespace Algorithms.DataStructures.Array
                 int j = i - 1;
                 while (j >= 0 && arr[j] > key)
                 {
+                    if (isClose)
+                    {
+                        return;
+                    }
                     Swap_color.sort_Swap_Color(canvas, j);
                     Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(0.2));

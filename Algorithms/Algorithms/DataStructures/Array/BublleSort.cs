@@ -42,6 +42,10 @@ namespace Algorithms.DataStructures.Array
             {
                 for (int j = 0; j < lenght - count; j++)
                 {
+                    if (isClose)
+                    {
+                        return;
+                    }
                     Swap_color.start_Swap_Color(canvas, j);
                     Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(numberTime));
