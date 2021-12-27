@@ -1,1 +1,1 @@
-The application algorithms
+Sorting algorithms
