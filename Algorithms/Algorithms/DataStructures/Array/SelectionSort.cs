@@ -54,12 +54,25 @@ namespace Algorithms.DataStructures.Array
                         minIndex = j;
                     }
                 }
+                if (isClose)
+                {
+                    return;
+                }
                 if (minIndex != i)
                 {
+                    Swap_color.start_Swap_Color(canvas, minIndex, i);
                     Refresh();
                     Thread.Sleep(TimeSpan.FromSeconds(numberTime));
-                    canvas.Children[i].SetValue(Rectangle.HeightProperty, arr[minIndex]);
+                    Swap_color.sort_Swap_Color(canvas, minIndex, i);
+                    Refresh();
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                     canvas.Children[minIndex].SetValue(Rectangle.HeightProperty, arr[i]);
+                    canvas.Children[i].SetValue(Rectangle.HeightProperty, arr[minIndex]);
+                    Refresh();
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
+                    Swap_color.end_Swap_Color(canvas, minIndex, i);
+                    Refresh();
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                     Swap(ref arr[minIndex], ref arr[i]);
                 }
             }

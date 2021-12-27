@@ -48,11 +48,7 @@ namespace Algorithms
             canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));
             canvas.Children[j + 1].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));
         }
-        public static void sort_Swap_Color_reverse(Canvas canvas, int j)
-        {
-            canvas.Children[j].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));
-            canvas.Children[j - 1].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));
-        }
+        
         public static void sort_Swap_Color(Canvas canvas, int i, int j)
         {
             canvas.Children[i].SetValue(System.Windows.Shapes.Rectangle.FillProperty, new SolidColorBrush(Colors.Red));

@@ -48,18 +48,43 @@ namespace Algorithms.DataStructures.Array
         {
             for (int i = n / 2 - 1; i >= 0; i--)
             {
-                heapify_animation(arr, n, i);
+                if (isClose)
+                {
+                    return;
+                }
+                heapify_animation(arr, n, i, canvas);
             }
 
             for (int i = n - 1; i >= 0; i--)
             {
+                if (isClose)
+                {
+                    return;
+                }
+                Swap_color.start_Swap_Color(canvas, 0,i);
+                Refresh();
+                Thread.Sleep(TimeSpan.FromSeconds(numberTime));
+                Swap_color.sort_Swap_Color(canvas, 0, i);
+                Refresh();
+                Thread.Sleep(TimeSpan.FromSeconds(numberTime));
+                canvas.Children[0].SetValue(Rectangle.HeightProperty, arr[i]);
+                canvas.Children[i].SetValue(Rectangle.HeightProperty, arr[0]);
+                Refresh();
+                Thread.Sleep(TimeSpan.FromSeconds(numberTime));
+                Swap_color.end_Swap_Color(canvas, 0, i);
+                Refresh();
+                Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                 Swap(ref arr[0], ref arr[i]);
-                heapify_animation(arr, i, 0);
+                heapify_animation(arr, i, 0, canvas);
             }
 
         }
-        public static void heapify_animation(double[] arr, int n, int i)
+        public static void heapify_animation(double[] arr, int n, int i, Canvas canvas)
         {
+            if (isClose)
+            {
+                return;
+            }
             int largest = i;
             int left = 2 * i + 1;
             int right = 2 * i + 2;
@@ -69,8 +94,19 @@ namespace Algorithms.DataStructures.Array
                 largest = right;
             if (largest != i)
             {
+                Swap_color.start_Swap_Color(canvas, largest, i);
+                Refresh();
+                Thread.Sleep(TimeSpan.FromSeconds(numberTime));
+                Swap_color.sort_Swap_Color(canvas, largest, i);
+                canvas.Children[largest].SetValue(Rectangle.HeightProperty, arr[i]);
+                canvas.Children[i].SetValue(Rectangle.HeightProperty, arr[largest]);
+                Refresh();
+                Thread.Sleep(TimeSpan.FromSeconds(numberTime));
+                Swap_color.end_Swap_Color(canvas, largest, i);
+                Refresh();
+                Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                 Swap(ref arr[i], ref arr[largest]);
-                heapify_animation(arr, n, largest);
+                heapify_animation(arr, n, largest, canvas);
             }
         }
 

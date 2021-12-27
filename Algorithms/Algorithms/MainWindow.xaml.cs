@@ -72,8 +72,8 @@ namespace Algorithms
 
         public TextBlock numberTime = new TextBlock
         {
-            Margin = new Thickness(790, 10, 350, 582),
-            Text = "0"
+            Margin = new Thickness(710, 10, 400, 582),
+            Text = "0 s"
         };
 
         public Slider sliderTime = new Slider
@@ -81,10 +81,14 @@ namespace Algorithms
             Minimum = 0,
             Maximum = 10,
             IsSnapToTickEnabled = true,
-            Margin = new Thickness(568, 10, 411, 582),
+            Margin = new Thickness(550, 10, 480, 582),
 
         };
 
+        public TextBlock Stable = new TextBlock
+        {
+            Margin = new Thickness(740, 10, 330, 582)
+        };
 
         private void btnAnimation_Click(object sender, RoutedEventArgs e)
         {
@@ -104,26 +108,32 @@ namespace Algorithms
                 if (sort.checkBubbleSort)
                 {
                     sort.txbAlgorithms.Text = "Bubble Sort";
+                    Stable.Text = "Stable: Yes";
                 }
                 else if (sort.checkQuickSort)
                 {
                     sort.txbAlgorithms.Text = "Quick Sort";
+                    Stable.Text = "Stable: No";
                 }
                 else if (sort.checkHeapSort)
                 {
                     sort.txbAlgorithms.Text = "Heap Sort";
+                    Stable.Text = "Stable: No";
                 }
                 else if (sort.checkInsertionSort)
                 {
                     sort.txbAlgorithms.Text = "Insertion Sort";
+                    Stable.Text = "Stable: Yes";
                 }
                 else if (sort.checkSelectionSort)
                 {
                     sort.txbAlgorithms.Text = "Selection Sort";
+                    Stable.Text = "Stable: No";
                 }
                 else if (sort.checkCocktailSort)
                 {
                     sort.txbAlgorithms.Text = "Cocktail Sort";
+                    Stable.Text = "Stable: Yes";
                 }
 
 
@@ -140,6 +150,7 @@ namespace Algorithms
                 sort.btnSortArray.Content = "Sort";
                 sort.grid1.Children.Add(sliderTime);
                 sort.grid1.Children.Add(numberTime);
+                sort.grid1.Children.Add(Stable);
                 this.Close();
                 sort.ShowDialog();
             }
@@ -149,7 +160,7 @@ namespace Algorithms
 
         private void SliderTime_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            numberTime.Text = (sliderTime.Value/10).ToString();
+            numberTime.Text = (sliderTime.Value/10).ToString() + " s";
             Sort.numberTime = sliderTime.Value / 10;
         }
     }

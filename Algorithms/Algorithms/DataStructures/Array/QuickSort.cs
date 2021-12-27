@@ -88,7 +88,7 @@ namespace Algorithms.DataStructures.Array
                     Swap_color.Swap_Color_Blue(canvas, l);
                     Swap_color.Swap_Color_Green(canvas, r);
                     Refresh();
-                    Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                     while (arr[l] < pivot)
                     {
                         if (isClose)
@@ -99,7 +99,7 @@ namespace Algorithms.DataStructures.Array
                         l++;
                         Swap_color.Swap_Color_Blue(canvas, l);
                         Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                     }
                     while (arr[r] > pivot)
                     {
@@ -111,7 +111,7 @@ namespace Algorithms.DataStructures.Array
                         r--;
                         Swap_color.Swap_Color_Green(canvas, r);
                         Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                     }
                     if (l <= r)
                     {
@@ -127,7 +127,7 @@ namespace Algorithms.DataStructures.Array
                         Swap(ref arr[l], ref arr[r]);
                         Swap_color.end_Swap_Color(canvas, l, r);
                         Refresh();
-                        Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                        Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                         l++;
                         r--;
                     }
