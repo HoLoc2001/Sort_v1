@@ -90,6 +90,17 @@ namespace Algorithms
             Margin = new Thickness(740, 10, 330, 582)
         };
 
+        public TextBlock Time_Memory = new TextBlock
+        {
+            Margin = new Thickness(820, 15, 120, 572)
+        };
+        public TextBlock Time_Memory_Title = new TextBlock
+        {
+            Margin = new Thickness(820, 0, 120, 592),
+            Text = "\t Time\t\t\tMemory"
+            
+        };
+
         private void btnAnimation_Click(object sender, RoutedEventArgs e)
         {
             if (rbBubble.IsChecked == true || rbQuick.IsChecked == true || rbHead.IsChecked == true ||
@@ -103,42 +114,48 @@ namespace Algorithms
                     checkInsertionSort = (bool)rbInsertion.IsChecked,
                     checkSelectionSort = (bool)rbSelection.IsChecked,
                     checkCocktailSort = (bool)rbCocktail.IsChecked,
-                    isAnimation = true
+                    isAnimation = true,
                 };
                 if (sort.checkBubbleSort)
                 {
                     sort.txbAlgorithms.Text = "Bubble Sort";
                     Stable.Text = "Stable: Yes";
+                    Time_Memory.Text = "O(n) / O(n^2) / O(n^2)  \t\t  O(1)";
                 }
                 else if (sort.checkQuickSort)
                 {
                     sort.txbAlgorithms.Text = "Quick Sort";
                     Stable.Text = "Stable: No";
+                    Time_Memory.Text = "O(nlogn) / O(nlogn) / O(n^2)\t O(logn)";
                 }
                 else if (sort.checkHeapSort)
                 {
                     sort.txbAlgorithms.Text = "Heap Sort";
                     Stable.Text = "Stable: No";
+                    Time_Memory.Text = "O(nlogn) / O(nlogn) / O(nlogn)  \t  O(1)";
                 }
                 else if (sort.checkInsertionSort)
                 {
                     sort.txbAlgorithms.Text = "Insertion Sort";
                     Stable.Text = "Stable: Yes";
+                    Time_Memory.Text = "O(n) / O(n^2) / O(n^2) \t\t  O(1)";
                 }
                 else if (sort.checkSelectionSort)
                 {
                     sort.txbAlgorithms.Text = "Selection Sort";
                     Stable.Text = "Stable: No";
+                    Time_Memory.Text = "O(n^2) / O(n^2) / O(n^2) \t\t  O(1)";
                 }
                 else if (sort.checkCocktailSort)
                 {
                     sort.txbAlgorithms.Text = "Cocktail Sort";
                     Stable.Text = "Stable: Yes";
+                    Time_Memory.Text = "O(n) / O(n^2) / O(n^2)  \t\t  O(1)";
                 }
 
 
                 sliderTime.ValueChanged += SliderTime_ValueChanged;
-                
+                Sort.isClose = false;
                 
 
                 sort.btnSortLinkedList.Visibility = Visibility.Hidden;
@@ -151,6 +168,8 @@ namespace Algorithms
                 sort.grid1.Children.Add(sliderTime);
                 sort.grid1.Children.Add(numberTime);
                 sort.grid1.Children.Add(Stable);
+                sort.grid1.Children.Add(Time_Memory); 
+                sort.grid1.Children.Add(Time_Memory_Title);
                 this.Close();
                 sort.ShowDialog();
             }

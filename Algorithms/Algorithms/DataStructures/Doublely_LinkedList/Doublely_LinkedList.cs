@@ -262,27 +262,33 @@ namespace Algorithms.DataStructures.Doublely_LinkedList
         #region InsertionSort
         public void Insertion_sort()
         {
-            Node i = head;
+            Node i = head.next;
             Node j;
-            while (i != null && i != null)
+            while (i != null)
             {
                 double key = i.data;
                 j = i.prev;
-                while (j != null && j.data > key)
+                while (j != null  && j.data > key)
                 {
                     j.next.data = j.data;
-                    j = j.prev;
+                    j = j.prev;                    
                 }
-                j.next.data = key;
+
+                if (j == null)
+                {
+                    head.data = key;
+                }
+                else
+                {
+                    j.next.data = key;
+                }
+
                 i = i.next;
             }
         }
     
         #endregion
-
         
-
-
         #region CocktailSort
         public void Cocktail_sort()
         {

@@ -23,7 +23,7 @@ namespace Algorithms.DataStructures.Array
                 while (j >= 0 && arr[j] > key)
                 {
                     arr[j + 1] = arr[j];
-                    j = j - 1;
+                    j--;
                 }
                 arr[j + 1] = key;
             }
@@ -40,9 +40,6 @@ namespace Algorithms.DataStructures.Array
                     return;
                 }
                 double key = arr[i];
-                Swap_color.Swap_Color_Green(canvas, i);
-                Refresh();
-                Thread.Sleep(TimeSpan.FromSeconds(0.2));
                 int j = i - 1;
                 while (j >= 0 && arr[j] > key)
                 {
@@ -52,23 +49,21 @@ namespace Algorithms.DataStructures.Array
                     }
                     Swap_color.sort_Swap_Color(canvas, j);
                     Refresh();
-                    Thread.Sleep(TimeSpan.FromSeconds(0.2));
-                    canvas.Children[j].SetValue(Rectangle.HeightProperty, arr[j + 1]);
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
+                    canvas.Children[j].SetValue(Rectangle.HeightProperty, key);
                     canvas.Children[j + 1].SetValue(Rectangle.HeightProperty, arr[j]);
                     arr[j + 1] = arr[j];
+                    Refresh();
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                     Swap_color.end_Swap_Color(canvas, j);
-                    //Refresh();
-                    //Thread.Sleep(TimeSpan.FromSeconds(0.2));
-                    j = j - 1;
+                    j--;
+                    Refresh();
+                    Thread.Sleep(TimeSpan.FromSeconds(numberTime));
                 }
-                //Refresh();
-                //Thread.Sleep(TimeSpan.FromSeconds(1));
                 canvas.Children[j + 1].SetValue(Rectangle.HeightProperty, key);
-                arr[j + 1] = key;
-                //Swap_color.Swap_Color_Green(canvas, j + 1);
-                Swap_color.Swap_Color_Black(canvas, i);
                 Refresh();
-                Thread.Sleep(TimeSpan.FromSeconds(0.2));
+                Thread.Sleep(TimeSpan.FromSeconds(numberTime));
+                arr[j + 1] = key;
             }
         }
     }

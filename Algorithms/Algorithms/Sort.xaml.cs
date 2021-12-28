@@ -288,12 +288,12 @@ namespace Algorithms
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            isClose = true;
             this.Close();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {            
+            isClose = true;
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
         }
