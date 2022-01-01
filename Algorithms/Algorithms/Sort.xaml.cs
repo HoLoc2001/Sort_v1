@@ -109,6 +109,7 @@ namespace Algorithms
         private void sliderNumber_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             Number = Convert.ToInt32(sliderNumber.Value);
+            isClose = true;
             random();
         }
         private void BtnReset_Click(object sender, RoutedEventArgs e)
@@ -209,6 +210,7 @@ namespace Algorithms
 
         private void btnSortArray_Click(object sender, RoutedEventArgs e)
         {
+            isClose = false;
             if (sliderNumber.Value > 0)
             {
                 if (!isAnimation)
