@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Algorithms"
         mc:Ignorable="d"
-        Title="Select" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="Sorting algorithms visualizer" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Button x:Name="btn" Content="Sort" Margin="559,130,139.667,256" Click="btn_Sort"></Button>
-        <Button x:Name="btnAnimation" Margin="559,220,139.667,167" Content="Animation" Click="btnAnimation_Click"></Button>
-        <RadioButton x:Name="rbBubble" Content="Bubble Sort" Margin="97,139,578.333,255.667" x:FieldModifier="public"></RadioButton>
-        <RadioButton x:Name="rbQuick" Content="Quick Sort" Margin="216,166,459.667,229" x:FieldModifier="public"></RadioButton>
-        <RadioButton x:Name="rbHead" Content="Head Sort" Margin="343,139,332.333,255.667"></RadioButton>
-        <RadioButton x:Name="rbSelection" Content="Selection Sort" Margin="343,165,332.667,229"></RadioButton>
-        <RadioButton x:Name="rbInsertion" Content="Insertion Sort" Margin="97,166,578.667,228"></RadioButton>
-        <RadioButton x:Name="rbCocktail" Content="Cocktail Sort" Margin="216,138,459.667,256"></RadioButton>
+        <Button x:Name="btnAnimation" Margin="559,220,139.667,167" Content="Sort Animation" Click="btnAnimation_Click"></Button>
+        <RadioButton x:Name="rbBubble" Content="Bubble Sort" Margin="112,173,563.667,222" x:FieldModifier="public"></RadioButton>
+        <RadioButton x:Name="rbQuick" Content="Quick Sort" Margin="231,200,444.667,195" x:FieldModifier="public"></RadioButton>
+        <RadioButton x:Name="rbHead" Content="Head Sort" Margin="358,173,317.667,222"></RadioButton>
+        <RadioButton x:Name="rbSelection" Content="Selection Sort" Margin="358,199,317.667,195"></RadioButton>
+        <RadioButton x:Name="rbInsertion" Content="Insertion Sort" Margin="112,200,563.667,194"></RadioButton>
+        <RadioButton x:Name="rbCocktail" Content="Cocktail Sort" Margin="231,172,444.667,222"></RadioButton>
 
     </Grid>
 </Window>
