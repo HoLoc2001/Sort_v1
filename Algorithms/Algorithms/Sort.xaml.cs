@@ -60,6 +60,7 @@ namespace Algorithms
 
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
+            isClose = true;
             if (sliderNumber.Value > 0)
             {
                 random();
@@ -114,6 +115,7 @@ namespace Algorithms
         }
         private void BtnReset_Click(object sender, RoutedEventArgs e)
         {
+            isClose = true;
             if (sliderNumber.Value > 0)
             {
                 array = (double[])arrayClone.Clone();
