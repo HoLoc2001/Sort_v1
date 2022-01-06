@@ -165,6 +165,7 @@ namespace Algorithms
                 sort.ArrayTime.Visibility = Visibility.Hidden;
                 sort.ArrayTime.Visibility = Visibility.Collapsed;
                 sort.btnSortArray.Content = "Sort";
+                sort.Title = "Sort Animation";
                 sort.grid1.Children.Add(sliderTime);
                 sort.grid1.Children.Add(numberTime);
                 sort.grid1.Children.Add(Stable);
